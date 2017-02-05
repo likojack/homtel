@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+</head>
+<body>
+<form>
+<table id='myTable'>
+  <style>
+    td,th {
+      border: 1px solid #dddddd;
+    }
+    tr {
+      border: 1px solid #dddddd;
+    }
+  </style>
+  <tr>
+    <th>content</th>
+    <th>requirement</th>
+  </tr>
+  <tr>
+    <td>Sweep the ground</td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>check BBQ</td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>Check and clean cobweb</td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td>Wipe tables & chairs</td>
+    <td><input type="text"></td>
+  </tr>
+</table>
+Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
+<br>
+<button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
+<script src="belcony_requirement.js">
+</script>
+</form>
+</body>
+</html>
+

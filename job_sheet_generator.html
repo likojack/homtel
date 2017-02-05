@@ -1,0 +1,89 @@
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+</head>
+<form>
+First name: <input type="text" id='fName'>
+Last name: <input type="text" id='lName'><br>
+customer code: <input type="text" name="cCode", id='customerCode'><br>
+mobile number: <input type="text" name="phone"><br>
+Email: <input type="text" name="email"><br>
+Billing Address: <br>
+Street Address: <input type="text" name="billStreetAddress">
+City: <input type="text" name="billCity">
+State: <input type="text" name="billState"><br>
+Post Code: <input type="text" name="billPostCode">
+Country: <input type="text" name="billCountry"><br>
+Property Info <br>
+Property Type: 
+<input type="radio" value="Unit"> Unit
+<input type="radio" value="Apartment"> Apartment
+<input type="radio" value="Townhouse"> Townhouse
+<input type="radio" value="House"> House
+<br>
+Property Address: <br>
+Street Address: <input type="text" name="propertyStreetAddress">
+City: <input type="text" name="propertyCity">
+State: <input type="text" name="propertyState"><br>
+Post Code: <input type="text" name="propertyPostCode">
+Country: <input type="text" name="propertyCountry"><br>
+Property Code: <input type="text" name='propertyCode'> <br>
+Number of Bedroom: <input type="text" name="numBedroom">
+Number of Bathroom: <input type="text" name="numBathroom">
+Number of Living Area: <input type="text" name="numLiving">
+Number of Kitchen: <input type="text" name="numKitchen">
+<br>
+Parking Provided: <input type="checkbox" value="parkingYes"> Yes
+<input type="checkbox" value="parkingNo"> No
+<br>
+Front Door lock type:
+<input type="radio" value="doorKeyHole"> Key Hole
+<input type="radio" value="doorPassCode"> Pass Code
+<br>
+Front door access detail:
+<input type="text" name="frontDoor">
+<br>
+Utility Cabinet Lock Type:
+<input type="radio" value="utilityKeyHole"> Key Hole
+<input type="radio" value="utilityPassCode"> Pass Code
+<br>
+Utility Cabinet Access Detail:
+<input type="text" name="utilityAccess">
+<br>
+Service Type:
+<br>
+Cleaning: 
+<input type="radio" value="cleaningYes"> Yes
+<input type="radio" value="cleaningNo"> No
+<br>
+Washing:
+<input type="radio" value="washingYes"> Yes
+<input type="radio" value="washingNo"> No
+<br>
+Ironing:
+<input type="radio" value="ironingYes"> Yes
+<input type="radio" value="ironingNo"> No
+<br>
+Service Code:
+<input type="text" name="serviceCode">
+<br>
+<script src="writePropertyInfo.js">
+</script>
+<button type="button" onclick="writePropertyInfo()">next step</button>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</form>
