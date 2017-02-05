@@ -33,7 +33,5 @@ function upload() {
 function nextRoom() {
 	if (ptNum <= numBed) { //record the current bedroom requirement
 		location.href = 'bedroom_requirement.html'+'#'+numBed+numBath+ptRoom + (parseInt(ptNum) + 1);
-	}
-	return false;
-	
+	}	
 }
