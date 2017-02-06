@@ -14,5 +14,5 @@ myTable.innerHTML = "<b>"+text+"</b>";
 function nextRoom() {
 	//TODO: write requirement to database.
 	
-	window.location.href = 'laundry_requirement.html'+'#'+"laundry";
+	window.location.href = 'mop_requirement.html'+'#'+"mop";
 }

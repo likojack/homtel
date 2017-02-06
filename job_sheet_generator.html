@@ -6,15 +6,15 @@
 <form>
 First name: <input type="text" id='fName'>
 Last name: <input type="text" id='lName'><br>
-customer code: <input type="text" name="cCode", id='customerCode'><br>
-mobile number: <input type="text" name="phone"><br>
-Email: <input type="text" name="email"><br>
+customer code: <input type="text" id="customerCode"><br>
+mobile number: <input type="text" id="phone"><br>
+Email: <input type="text" id="email"><br>
 Billing Address: <br>
-Street Address: <input type="text" name="billStreetAddress">
-City: <input type="text" name="billCity">
-State: <input type="text" name="billState"><br>
-Post Code: <input type="text" name="billPostCode">
-Country: <input type="text" name="billCountry"><br>
+Street Address: <input type="text" id="billStreetAddress">
+City: <input type="text" id="billCity">
+State: <input type="text" id="billState"><br>
+Post Code: <input type="text" id="billPostCode">
+Country: <input type="text" id="billCountry"><br>
 Property Info <br>
 Property Type: 
 <input type="radio" value="Unit"> Unit
@@ -23,16 +23,24 @@ Property Type:
 <input type="radio" value="House"> House
 <br>
 Property Address: <br>
-Street Address: <input type="text" name="propertyStreetAddress">
-City: <input type="text" name="propertyCity">
-State: <input type="text" name="propertyState"><br>
-Post Code: <input type="text" name="propertyPostCode">
-Country: <input type="text" name="propertyCountry"><br>
-Property Code: <input type="text" name='propertyCode'> <br>
-Number of Bedroom: <input type="text" name="numBedroom">
-Number of Bathroom: <input type="text" name="numBathroom">
-Number of Living Area: <input type="text" name="numLiving">
-Number of Kitchen: <input type="text" name="numKitchen">
+Street Address: <input type="text" id="propertyStreetAddress">
+City: <input type="text" id="propertyCity">
+State: <input type="text" id="propertyState"><br>
+Post Code: <input type="text" id="propertyPostCode">
+Country: <input type="text" id="propertyCountry"><br>
+Property Code: <input type="text" id='propertyCode'> <br>
+Number of Bedroom: <input type="text" id="numBed">
+Number of Bathroom: <input type="text" id="numBath">
+<br>
+Number of Living Area: <input type="text" id="numLiving">
+<br>
+Does Kitchen require cleaning?: 
+<input type="radio" name = "kitchen" id = "tKitchen" value="y">YES
+<input type="radio" name = "kitchen" id = "fKitchen" value="n">NO
+<br>
+Does Laundry require cleaning?: 
+<input type="radio" name = "laundry" id = "tLaundry" value="y">YES
+<input type="radio" name = "laundry" id = "fLaundry" value="n">NO
 <br>
 Parking Provided: <input type="checkbox" value="parkingYes"> Yes
 <input type="checkbox" value="parkingNo"> No
@@ -42,14 +50,14 @@ Front Door lock type:
 <input type="radio" value="doorPassCode"> Pass Code
 <br>
 Front door access detail:
-<input type="text" name="frontDoor">
+<input type="text" id="frontDoor">
 <br>
 Utility Cabinet Lock Type:
 <input type="radio" value="utilityKeyHole"> Key Hole
 <input type="radio" value="utilityPassCode"> Pass Code
 <br>
 Utility Cabinet Access Detail:
-<input type="text" name="utilityAccess">
+<input type="text" id="utilityAccess">
 <br>
 Service Type:
 <br>
@@ -66,11 +74,12 @@ Ironing:
 <input type="radio" value="ironingNo"> No
 <br>
 Service Code:
-<input type="text" name="serviceCode">
+<input type="text" id="serviceCode">
 <br>
-<script src="writePropertyInfo.js">
+<script src="job_sheet_generator.js">
 </script>
-<button type="button" onclick="writePropertyInfo()">next step</button>
+<button type="button" onclick="writePropertyInfo()">save</button>
+<button type="button" onclick="nextRoom()">next step</button>
 
 
 

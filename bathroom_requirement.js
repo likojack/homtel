@@ -21,7 +21,10 @@ if (ptNum <= numBath) { //record the current bedroom requirement
 if (ptNum > numBath) {
 	location.href = 'kitchen_requirement.html'+'#'+'kitchen';
 }
-
+function upload() {
+	var dirtyTowelReqrt = document.getElementById("dirtyTowelReqrt");
+	firebase.database().ref()
+}
 function nextRoom() {
 	if (ptNum <= numBath) { //record the current bedroom requirement
 		//TODO: write requirement to database.

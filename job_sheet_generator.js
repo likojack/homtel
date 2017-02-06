@@ -18,13 +18,19 @@ function writePropertyInfo() {
 	const customerCode = document.getElementById("customerCode");
 	const firstName = document.getElementById("fName");
 	const lastName = document.getElementById("lName");
+	const numBed = document.getElementById("numBed");
+	const numBath = document.getElementById("numBath");
+	const tKitchen = document.getElementById("tKitchen");
+	const fKitchen = document.getElementById("fKitchen");
+	const Email = document.getElementById("email");
 	// const mobile = doc
-
-	// firebase.database().ref('customer/' + customerCode.value).set({
-	// 	customer_code: customerCode.value,
-	// 	first_name: firstName.value,
-	// 	last_name: lastName.value
-
+	console.log(customerCode.value, firstName.value, lastName.value);
+	firebase.database().ref('customer/' + customerCode.value).set({
+		customer_code: customerCode.value,
+		first_name: firstName.value,
+		last_name: lastName.value,
+		email: Eamil.value
+	});
 		// TODO: set id in HTML input field, read it to this js file,
 		//and then write them to database.
     // First Name: name,
@@ -41,6 +47,8 @@ function writePropertyInfo() {
 	// and then write service requirement to database
 	//assume the number of bedroom is 2
 
-	window.location.href = 'bedroom_requirement.html'+'#'+'3'+'4'+'bedroom'+'1';
-
+	
+}
+function nextRoom() {
+	window.location.href = 'bedroom_requirement.html'+'#'+numBed.value+numBath.value+'bedroom'+'1';
 }
