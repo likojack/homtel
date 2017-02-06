@@ -8,30 +8,30 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-// if text.substr()
-var numBed = text.slice(0,1);
-var numBath = text.slice(1,2);
-var ptRoom = text.slice(2,-1);
-var ptNum = text.slice(-1);
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+var numBed = query[1];
+var numBath = query[2];
+var ptRoom = query[3];
+var ptNum = query[4];
 
 if (ptNum <= numBed) { //record the current bedroom requirement
 	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
 else {
-	location.href = 'bathroom_requirement.html'+'#'+numBed+numBath+'bathroom' + 1;
+	location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + 1;
 }
+
 function upload() {
-	const sProtector = document.getElementById('sProtector');
-	const propertyCode="asd111";
 	firebase.database().ref('property/'+propertyCode+'/'+ptRoom+ptNum).set({
-		strip_protector: sProtector.value
+		strip_protector: document.getElementById('sProtector').value
 	});
 }
 
 
 function nextRoom() {
 	if (ptNum <= numBed) { //record the current bedroom requirement
-		location.href = 'bedroom_requirement.html'+'#'+numBed+numBath+ptRoom + (parseInt(ptNum) + 1);
+
+		location.href = 'bedroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1);
 	}	
 }
