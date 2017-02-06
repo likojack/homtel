@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+</head>
+<body>
+<form id="myForm">
+	<style>
+	td,th {
+		border: 1px solid #dddddd;
+	}
+	tr {
+		border: 1px solid #dddddd;
+	}
+	</style>
+<table id='myTable'>
+  <tr>
+    <th>Content</th>
+    <th>Detail</th>
+    <th>Requirement</th>
+  </tr>
+  <tr>
+    <td rowspan="5">Strip</td>
+    <td>Protector</td>
+    <td><p id="sProtector"></p></td>
+  </tr>
+  <tr>
+    <td>Fitted sheet</td>
+    <td><p id="sFlatSheet"></p></td>
+  </tr>
+  <tr>
+    <td>Flat sheet</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Quilt cover</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Pillowcases</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td rowspan="5"> Make</td>
+    <td>Pillowcases</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Fitted sheet</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Flat sheet</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Quilt cover</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Other beddings (cushion, decoration)</td>
+    <td></td>
+  </tr>
+  <tr>
+  	<td colspan="2"></td>
+    <td></td>
+  </tr>  
+</table>
+Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
+<br>
+<button type="button" formmethod="post" onclick='upload()'>save</button>
+<button type="submit" formmethod="post" onclick='nextRoom()'>next step</button>
+<script src='bedroom_job_sheet.js'>
+</script>
+</form>
+</body>
+</html>
+
