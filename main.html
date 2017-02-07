@@ -1,7 +1,15 @@
 <button onclick="redirectNew()">New Customer</button>
-<button>Open Jobsheet</button>
+<button onclick="redirectExisting()">Existing Customer</button>
+<button onclick="redirectJobSheet()">Open Jobsheet</button>
+
 <script type="text/javascript">
 function redirectNew() {
 	window.location="job_sheet_generator.html";
+}
+function redirectJobSheet() {
+	window.location="search_job_sheet.html";
+}
+function redirectExisting() {
+	window.location="search_customer.html";
 }
 </script>
