@@ -11,6 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Mopping"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
+var washing = query[2];//"%" means not required
+var ironing = query[3];//"%" means not required
 
 function upload() {
   firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'mopping').set({
@@ -22,5 +24,5 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'vacuum_requirement.html?'+propertyCode+"&"+'vacuuming';
+	window.location.href = 'vacuum_requirement.html?'+propertyCode+"&"+'vacuuming'+"&"+washing+"&"+ironing;
 }

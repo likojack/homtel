@@ -13,7 +13,9 @@ var propertyCode = query[0];
 var numBed = query[1];
 var numBath = query[2];
 var ptRoom = query[3];
-var ptNum = query[4];
+var ptNum = query[4]; 
+var washing = query[5];//"%" means not required
+var ironing = query[6];//"%" means not required
 
 if (ptNum <= numBed) { //record the current bedroom requirement
 	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
@@ -41,8 +43,8 @@ function upload() {
 function nextRoom() {
 	console.log (ptNum);
 	if (ptNum < numBed) { //record the current bedroom requirement
-		location.href = 'bedroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1);
+		location.href = 'bedroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1) +"&"+washing+"&"+ironing;
 	} else {//next one is bathroom
-		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ "bathroom" + "&" + 1;
+		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ "bathroom" + "&" + 1 +"&"+washing+"&"+ironing;
 	}	
 }

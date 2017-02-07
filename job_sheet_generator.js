@@ -29,17 +29,46 @@ function writeCustomerInfo() { //write customer info to database
 function generateServiceCode() {
 
 	if (document.getElementById('washingYes').checked && document.getElementById('ironingYes').checked) {
-		return document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "WI"
 	}
 	if (document.getElementById('washingYes').checked && document.getElementById('ironingNo').checked) {
-		return document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "W"
 	}
 	if (document.getElementById('washingNo').checked && document.getElementById('ironingYes').checked) {
-		return document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "I"
 	}
 	if (document.getElementById('washingNo').checked && document.getElementById('ironingNo').checked) {
-		return document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K"
 	}
+
+	if (document.getElementById('cleaningYes').checked) {
+		if (document.getElementById('washingYes').checked) {
+			if (document.getElementById('ironingYes').checked) {
+				document.getElementById("service_code").innerHTML = document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "WI"
+			} else if (document.getElementById('ironingNo').checked) {
+				document.getElementById("service_code").innerHTML = document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "W"
+			}
+		} else if (document.getElementById('washingNo').checked) {
+			if (document.getElementById('ironingYes').checked) {
+				document.getElementById("service_code").innerHTML = document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K" + "I"
+			} else if (document.getElementById('ironingNo').checked) {
+				document.getElementById("service_code").innerHTML = document.getElementById("numBed").value + 'B' + document.getElementById("numBath").value + 'T' + "1K"
+			}
+		}
+		
+	} else if (document.getElementById('cleaningNo').checked){
+		if (document.getElementById('washingYes').checked){
+			if (document.getElementById('ironingYes').checked) {
+				document.getElementById("service_code").innerHTML = "WI"
+			} else if (document.getElementById('ironingNo').checked) {
+				document.getElementById("service_code").innerHTML = "W"
+			}
+		} else  if (document.getElementById('washingNo').checked) {
+			if (document.getElementById('ironingYes').checked) {
+				document.getElementById("service_code").innerHTML = "I"
+			} else if (document.getElementById('ironingNo').checked) {
+				alert("Please choose a service!");
+			}
+		} 
+	} else {
+		alert("Please choose a service!");
+	}	
 	 
 }
 
@@ -127,7 +156,7 @@ function writePropertyInfo() { //write property info to database
 		washing: washing,
 		ironing: ironing,
 		//service_code : generateServiceCode()
-		service_code : document.getElementById("serviceCode").value,
+		service_code : document.getElementById("service_code").value,
 	});
 
 
@@ -154,6 +183,39 @@ function writeJobSheetInfo() {
 }
 
 function nextRoom() {
-	window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1';
+	console.log ("in");
+	if (document.getElementById('cleaningYes').checked) {
+		if (document.getElementById('washingYes').checked) {
+			if (document.getElementById('ironingYes').checked) {
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"I";
+			} else if (document.getElementById('ironingNo').checked) {
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"%";
+			}
+		} else if (document.getElementById('washingNo').checked) {
+			if (document.getElementById('ironingYes').checked) {
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"%"+"&"+"I";
+			} else if (document.getElementById('ironingNo').checked) {
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"%"+"&"+"%";
+			}
+		}
+		
+	} else if (document.getElementById('cleaningNo').checked){
+		if (document.getElementById('washingYes').checked){
+			if (document.getElementById('ironingYes').checked) {
+				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"I";
+			} else if (document.getElementById('ironingNo').checked) {
+				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"%";
+			}
+		} else  if (document.getElementById('washingNo').checked) {
+			if (document.getElementById('ironingYes').checked){
+				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'ironing'+"&"+'0'+"&"+"%"+"&"+"I";
+			} else if (document.getElementById('ironingNo').checked) {
+				alert("Please choose a service!");
+			}
+		} 
+	} else {
+		alert("Please choose a service!");
+	}	
+
 }
 

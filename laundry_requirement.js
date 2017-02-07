@@ -11,6 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Laundry"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
+var washing = query[2];//"%" means not required
+var ironing = query[3];//"%" means not required
 
 function upload() {
   firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'laundry').set({
@@ -22,5 +24,5 @@ function upload() {
 }
 
 function nextRoom() {	
-	window.location.href = 'dusting_requirement.html?'+propertyCode+"&"+'dusting';
+	window.location.href = 'dusting_requirement.html?'+propertyCode+"&"+'dusting'+"&"+washing+"&"+ironing;
 }

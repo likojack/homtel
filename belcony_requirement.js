@@ -11,6 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Belcony"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
+var washing = query[2];//"%" means not required
+var ironing = query[3];//"%" means not required
 
 function upload() {
   firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'belcony').set({
@@ -24,5 +26,13 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'washing_requirement.html?'+propertyCode+"&"+"washing";
+  if (washing == 'W'){ //require washing
+    window.location.href = 'washing_requirement.html?'+propertyCode+"&"+"washing"+"&"+washing+"&"+ironing; 
+  } else if (washing =='%'){ // no washing required
+    if (ironing == 'I'){ //require ironing
+      window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"ironing"+"&"+washing+"&"+ironing; 
+    } else if (ironing =='%'){ // no ironing required
+      window.location.href = 'final.html?'+propertyCode+"&"+"final"; 
+    }
+  }
 }

@@ -8,9 +8,25 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Washing"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+var washing = query[2];//"%" means not required
+var ironing = query[3];//"%" means not required
+
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'washing').set({
+    quantity: document.getElementById("quantity").value,
+    identify_special: document.getElementById("identify_special").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+  });
+}
 
 function nextRoom() {
-	//TODO: write requirement to database.
+	if (ironing == 'I'){ //require ironing
+      window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"ironing"+"&"+washing+"&"+ironing; 
+    } else if (ironing =='%'){ // no ironing required
+      window.location.href = 'final.html?'+propertyCode+"&"+"final"; 
+    }
 }
