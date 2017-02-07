@@ -21,24 +21,28 @@
     <th>requirement</th>
   </tr>
   <tr>
-    <td>All floor corner (e.g., kitchen floor corner) & all carpet flooring</td>
-    <td><input type="text"></td>
+    <td>All carpet area</td>
+    <td><input type="text" id = "carpet"></td>
+  </tr>
+  <tr>
+    <td>All floor corner (e.g., kitchen floor corner)</td>
+    <td><input type="text" id = "corners"></td>
   </tr>
   <tr>
     <td>Vents</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "vents"></td>
   </tr>
   <tr>
     <td>Fly screens</td>
-    <td><input type="text"></td>
-  </tr>
+    <td><input type="text" id = "fly_screens"></td>
   <tr>
-    <td>Drains</td>
-    <td><input type="text"></td>
+    <td><input type="text" id="extra_iterm"></td>
+    <td><input type="text" id="extra_requirements"></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
 <br>
+<button type="button" onclick = "upload()">save</button>
 <button type="button" onclick = "nextRoom()">next step</button>
 <script src="vacuum_requirement.js">
 </script>

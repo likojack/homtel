@@ -8,7 +8,7 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = query = window.location.search.substring(1).split("&");
+var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var numBed = query[1];
 var numBath = query[2];

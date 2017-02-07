@@ -8,11 +8,19 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Mopping"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'mopping').set({
+    bathrooms: document.getElementById("bathrooms").value,
+    other: document.getElementById("other").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+  });
+}
 
 function nextRoom() {
-	//TODO: write requirement to database.
-	
-	window.location.href = 'vacuum_requirement.html'+'#'+"vacuum";
+	window.location.href = 'vacuum_requirement.html?'+propertyCode+"&"+'vacuuming';
 }

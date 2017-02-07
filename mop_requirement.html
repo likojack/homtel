@@ -22,15 +22,20 @@
   </tr>
   <tr>
     <td>Mop all bathrooms</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "bathrooms"></td>
   </tr>
   <tr>
-    <td>Mop all other non-carpet area</td>
-    <td><input type="text"></td>
+    <td>Mop all other non-carpet area (e.g. laundry, kitchen)</td>
+    <td><input type="text" id = "other"></td>
   </tr>
+  <tr>
+    <td><input type="text" id="extra_iterm"></td>
+    <td><input type="text" id="extra_requirements"></td>
+  </tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
 <br>
+<button type="button" onclick = "upload()">save</button>
 <button type="button" onclick = "nextRoom()">next step</button>
 <script src="mop_requirement.js">
 </script>

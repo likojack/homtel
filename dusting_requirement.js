@@ -8,12 +8,24 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-// if text.substr()
-console.log(text);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Dusting"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'dusting').set({
+    switches: document.getElementById("switches").value,
+    selves: document.getElementById("selves").value,
+    handles: document.getElementById("handles").value,
+    tables: document.getElementById("tables").value,
+    frames: document.getElementById("frames").value,
+    mirrors: document.getElementById("mirrors").value,
+    windows: document.getElementById("windows").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+  });
+}
 
 function nextRoom() {
-	//TODO: write requirement to database.
-	location.href = 'belcony_requirement.html'+'#'+'belcony';
+	location.href = 'mop_requirement.html?'+propertyCode+"&"+'mopping';
 }

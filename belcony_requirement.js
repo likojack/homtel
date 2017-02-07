@@ -8,11 +8,21 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Belcony"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'belcony').set({
+    sweep: document.getElementById("sweep").value,
+    bbq: document.getElementById("bbq").value,
+    cobweb: document.getElementById("cobweb").value,
+    wipe: document.getElementById("wipe").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+  });
+}
 
 function nextRoom() {
-	//TODO: write requirement to database.
-	
-	window.location.href = 'laundry_requirement.html'+'#'+"laundry";
+	window.location.href = 'washing_requirement.html?'+propertyCode+"&"+"washing";
 }

@@ -22,47 +22,52 @@
   </tr>
   <tr>
     <td>Check dishwasher & put away all washed stuff</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "dishwasher"></td>
   </tr>
   <tr>
     <td>Check the fridge & chuck remaining food away & wipe inside</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "fridge"></td>
   </tr>
   <tr>
-    <td>Check & wipe microwave/ oven/ cook top/ toaster</td>
-    <td><input type="text"></td>
+    <td>Check & wipe microwave/ oven/ cook top/ toaster (*Deep clean for extra)</td>
+    <td><input type="text" id = "microwave"></td>
   </tr>
   <tr>
     <td>Wipe appliances (e.g., coffee machien, kettles)</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "appliances"></td>
   </tr>
   <tr>
     <td>Wipe the bench top</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "wipe"></td>
   </tr>
   <tr>
     <td>Check and replace hand wash liquid & dishwasher pacs</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "replace"></td>
   </tr>
   <tr>
     <td>Top up supply (e.g., mikl, tea, water, coffee, snack)</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "supply"></td>
   </tr>
   <tr>
     <td>Take away dirty tea towels & put clean tea towels</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "tea_towels"></td>
   </tr>
   <tr>
     <td>Change the rubbish bin bags & paper towels</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "bin"></td>
   </tr>
   <tr>
     <td>Brush the sink & wipe the tap & dry with paper towels</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "sink"></td>
   </tr>
+  <tr>
+    <td><input type="text" id="extra_iterm"></td>
+    <td><input type="text" id="extra_requirements"></td>
+  </tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
 <br>
+<button type="button" onclick = "upload()">save</button>
 <button type="button" onclick = "nextRoom()">next step</button>
 <script src="kitchen_requirement.js">
 </script>

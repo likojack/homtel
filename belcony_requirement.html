@@ -22,23 +22,28 @@
   </tr>
   <tr>
     <td>Sweep the ground</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "sweep"></td>
   </tr>
   <tr>
-    <td>check BBQ</td>
-    <td><input type="text"></td>
+    <td>Check BBQ (*Deep clean for extra)</td>
+    <td><input type="text" id = "bbq"></td>
   </tr>
   <tr>
     <td>Check and clean cobweb</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "cobweb"></td>
   </tr>
   <tr>
     <td>Wipe tables & chairs</td>
-    <td><input type="text"></td>
+    <td><input type="text" id = "wipe"></td>
+  </tr>
+  <tr>
+    <td><input type="text" id="extra_iterm"></td>
+    <td><input type="text" id="extra_requirements"></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
 <br>
+<button type="button" onclick = "upload()">save</button>
 <button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="belcony_requirement.js">
 </script>

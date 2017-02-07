@@ -8,11 +8,19 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Laundry"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
 
-function nextRoom() {
-	//TODO: write requirement to database.
-	
-	window.location.href = 'mop_requirement.html'+'#'+"mop";
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'laundry').set({
+    sink: document.getElementById("sink").value,
+    surface: document.getElementById("surface").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+  });
+}
+
+function nextRoom() {	
+	window.location.href = 'dusting_requirement.html?'+propertyCode+"&"+'dusting';
 }

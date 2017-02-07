@@ -8,11 +8,27 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-myTable.innerHTML = "<b>"+text+"</b>";
+myTable.innerHTML = "<b>"+"Kitchen"+"</b>";
+var query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+
+function upload() {
+  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'kitchen').set({
+    dishwasher: document.getElementById("dishwasher").value,
+    fridge: document.getElementById("fridge").value,
+    microwave: document.getElementById("microwave").value,
+    appliances: document.getElementById("appliances").value,
+    replace: document.getElementById("replace").value,
+    supply: document.getElementById("supply").value,
+    tea_towels: document.getElementById("tea_towels").value,
+    bin: document.getElementById("bin").value,
+    sink: document.getElementById("sink").value,
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
+
+  });
+}
 
 function nextRoom() {
-	//TODO: write requirement to database.
-	
-	window.location.href = 'dusting_requirement.html'+'#'+'dusting';
+	window.location.href = 'laundry_requirement.html?'+propertyCode+"&"+'laundry';
 }
