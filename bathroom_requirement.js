@@ -8,27 +8,45 @@ var config = {
   firebase.initializeApp(config);
 
 var myTable = document.getElementById('myTable').createCaption();
-var text = window.location.hash.substr(1);
-// if text.substr()
-var numBed = text.slice(0,1);
-var numBath = text.slice(1,2);
-var ptRoom = text.slice(2,-1);
-var ptNum = text.slice(-1);
-console.log(ptNum);
-if (ptNum <= numBath) { //record the current bedroom requirement
+var text = query = window.location.search.substring(1).split("&");
+var propertyCode = query[0];
+var numBed = query[1];
+var numBath = query[2];
+var ptRoom = query[3];
+var ptNum = query[4];
+
+if (ptNum <= numBath) { //record the current bathroom requirement
 	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
-if (ptNum > numBath) {
-	location.href = 'kitchen_requirement.html'+'#'+'kitchen';
-}
+
 function upload() {
-	var dirtyTowelReqrt = document.getElementById("dirtyTowelReqrt");
-	firebase.database().ref()
+	firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
+		dirty_towels: document.getElementById("dirty_towels").value,
+		dry: document.getElementById("dry").value,
+		wipe: document.getElementById("wipe").value,
+		drain: document.getElementById("drain").value,
+		rack: document.getElementById("rack").value,
+		basin: document.getElementById("basin").value,
+		surface: document.getElementById("surface").value,
+		bathtub: document.getElementById("bathtub").value,
+		replace: document.getElementById("replace").value,
+		bin: document.getElementById("bin").value,
+		toilet_paper: document.getElementById("toilet_paper").value,
+		clean_towels: document.getElementById("clean_towels").value,
+		clean_washers: document.getElementById("clean_washers").value,
+		clean_bathmat: document.getElementById("clean_bathmat").value,
+		brush_toilet: document.getElementById("brush_toilet").value,
+		extra_iterm: document.getElementById('extra_iterm').value,
+		extra_requirements: document.getElementById('extra_requirements').value
+
+	});
 }
+
 function nextRoom() {
-	if (ptNum <= numBath) { //record the current bedroom requirement
-		//TODO: write requirement to database.
-		location.href = 'bathroom_requirement.html'+'#'+ numBed + numBath + ptRoom + (parseInt(ptNum) + 1);
+	if (ptNum < numBath) { //record the current bathroom requirement
+		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1);
+	} else {
+		location.href = 'kitchen_requirement.html?'+propertyCode+"&"+'kitchen';
 	}
 	
 }

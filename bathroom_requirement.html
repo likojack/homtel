@@ -22,73 +22,77 @@
 	</tr>
 	<tr>
 		<td>Take all used towels/ face washers/ Bath mats away</td>
-		<td><input type="text" id='dirtyTowelReqrt'></td>
+		<td><input type="text" id="dirty_towels"></td>
 	</tr>
 	<tr>
 		<td>Dry the floor & shower screen & basin</td>
-		<td><input type="text"></td>
+		<td><input type="text"  id="dry"></td>
 	</tr>
 	<tr>
 		<td>Wipe shower screens and mirror & dry with paper towels</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="wipe"></td>
 	</tr>
 	<tr>
 		<td>Clean drains</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="drain"></td>
 	</tr>
 	<tr>
 		<td>Wipe racks& taps & showerheads & dry with paper towels</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="rack"></td>
 	</tr>
 	<tr>
 		<td>Clean the basin</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="basin"></td>
 	</tr>
 	<tr>
 		<td>Wipe the surface</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="surface"></td>
 	</tr>
 	<tr>
 		<td>Wipe the bathtub</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="bathtub"></td>
 	</tr>
 	<tr>
 		<td>Check or replace shampoo/ body wash/ hand wash liquid</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="replace"></td>
 	</tr>
 	<tr>
 		<td>Change the rubbish bin bag</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="bin"></td>
 	</tr>
 	<tr>
 		<td>Change toilet papers & put spare</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="toilet_paper"></td>
 	</tr>
 	<tr>
 		<td>Put clean towels</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="dry"></td>
 	</tr>
 	<tr>
 		<td>Put clean hand towels</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="clean_towels"></td>
 	</tr>
 	<tr>
 		<td>Put clean face wahsers</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="clean_washers"></td>
 	</tr>
 	<tr>
-		<td>Put clean bath mat</td>
-		<td><input type="text"></td>
+		<td>Put clean bathmat</td>
+		<td><input type="text" id="clean_bathmat"></td>
 	</tr>
 	<tr>
 		<td>Brush toilet</td>
-		<td><input type="text"></td>
+		<td><input type="text" id="brush_toilet"></td>
 	</tr>
+	<tr>
+  		<td><input type="text" id="extra_iterm"></td>
+    	<td><input type="text" id="extra_requirements"></td>
+  	</tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
 <br>
-<button type="button" onclick = "upload()">save</button>
-<button type="submit" formmethod="post" onclick = "nextRoom()">next step</button>
+<button type="button" formmethod="post" onclick = "upload()">save</button>
+<button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="bathroom_requirement.js">
 </script>
 </form>
