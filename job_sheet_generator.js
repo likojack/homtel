@@ -156,7 +156,7 @@ function writePropertyInfo() { //write property info to database
 		washing: washing,
 		ironing: ironing,
 		//service_code : generateServiceCode()
-		service_code : document.getElementById("service_code").value,
+		service_code : document.getElementById("service_code").innerText
 	});
 
 

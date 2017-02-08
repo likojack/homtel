@@ -8,24 +8,22 @@ var config = {
   firebase.initializeApp(config);
 
 function search() {
-	const firstName = document.getElementById("firstName");
-	const lastName = document.getElementById("lastName");
-	const customerCode = document.getElementById("customerCode");
-	var dbRefCustomer = firebase.database().ref().child('customer_test').child(customerCode.value).child("property_code");
-	dbRefCustomer.on('value', function (snapshot){
-			var propertyList = snapshot.val();
-			var urlString = "job_sheet_home.html?"
-			for(i = 0; i < propertyList.length; i++) {
-				// var button = document.createElement("button");
-				// button.innerHTML = propertyList[i];
-				// button.id = propertyList[i];
-				// document.body.appendChild(button);
-				urlString = urlString + propertyList[i] + "&";
-			}	
-			location.href = urlString;
+	//read data from jobsheet database to get the property configuration
+	const propertyCode = document.getElementById("propertyCode");
+	var dbRefJobSheet = firebase.database().ref().child('job_sheets').child(propertyCode.value);
+	dbRefJobSheet.on('value', function (snapshot){
+		var property = snapshot.val();
+		var listRoom = Object.keys(property);
+		var numRoom = Object.keys(property).length;
+		for (i = 0; i < numRoom; i++) {
+			var button = document.createElement("button");
+			button.innerHTML = listRoom[i];
+			button.onclick = (function (roomType, propertyCode) { //jump to room job sheet page
+				//roomType.slice(0,-2) is to ignore the index of a room
+				location.href = roomType.slice(0,-2)+"_job_sheet.html?" + propertyCode + "&" + roomType;
+			}).bind(null, listRoom[i], propertyCode.value);
+			document.body.appendChild(button);
+		}
 	});
 
-
-	// console.log(propertyList);
-	
 }
