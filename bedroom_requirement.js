@@ -21,6 +21,28 @@ if (ptNum <= numBed) { //record the current bedroom requirement
 	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
 
+//check the browser supports the FILE API
+if (window.File && window.FileReader && window.FileList && window.Blob) {
+  // Great success! All the File APIs are supported.
+} else {
+  alert('The File APIs are not fully supported in this browser.');
+}
+
+function displayFile(event) {
+	//only read one image one time, because it is read from camera
+	var file = event.target.files;
+	console.log(file);
+	var reader = new FileReader();
+	reader.onload = function() {
+		var img = document.createElement('img');
+		img.height = '160';
+		img.width = '160';
+		img.src = reader.result;
+		document.getElementById('list').insertBefore(img,null);
+	}
+	reader.readAsDataURL(file[0]);
+}
+
 
 function upload() {
 	firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({

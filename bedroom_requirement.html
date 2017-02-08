@@ -68,7 +68,9 @@
     <td><input type="text" id="extra_requirements"></td>
   </tr>  
 </table>
-Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
+Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera"> 
+<br>
+<output id='list'></output>
 <br>
 <button type="button" formmethod="post" onclick='upload()'>save</button>
 <button type="button" formmethod="post" onclick='nextRoom()'>next step</button>
