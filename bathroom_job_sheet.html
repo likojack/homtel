@@ -8,70 +8,90 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-<form id="myForm">
-  <style>
-  td,th {
-    border: 1px solid #dddddd;
-  }
-  tr {
-    border: 1px solid #dddddd;
-  }
-  </style>
+<form>
 <table id='myTable'>
-  <tr>
-    <th>Content</th>
-    <th>Detail</th>
-    <th>Requirement</th>
-  </tr>
-  <tr>
-    <td rowspan="5">Strip</td>
-    <td>Protector</td>
-    <td><p id="strip_protector"></p></td>
-  </tr>
-  <tr>
-    <td>Fitted sheet</td>
-    <td><p id="strip_fitted_sheet"></p></td>
-  </tr>
-  <tr>
-    <td>Flat sheet</td>
-    <td><p id="strip_flat_sheet"></p></td>
-  </tr>
-  <tr>
-    <td>Quilt cover</td>
-    <td><p id="strip_quilt_cover"></p></td>
-  </tr>
-  <tr>
-    <td>Pillowcases</td>
-    <td><p id="strip_pillowcases"></p></td>
-  </tr>
-  <tr>
-    <td rowspan="5"> Make</td>
-    <td>Pillowcases</td>
-    <td><p id="make_pillowcases"></p></td>
-  </tr>
-  <tr>
-    <td>Fitted sheet</td>
-    <td><p id="make_fitted_sheet"></p></td>
-  </tr>
-  <tr>
-    <td>Flat sheet</td>
-    <td><p id="make_flat_sheet"></p></td>
-  </tr>
-  <tr>
-    <td>Quilt cover</td>
-    <td><p id="make_quilt_cover"></p></td>
-  </tr>
-  <tr>
-    <td>Other beddings (cushion, decoration)</td>
-    <td><p id="make_other_beddings"></p></td>
-  </tr>
-  <tr>
-    <td colspan="2"><p id="extra_iterm"></p></td>
-    <td><p id="extra_requirements"></p></td>
-  </tr>  
+	<style>
+		td,th {
+			border: 1px solid #dddddd;
+		}
+		tr {
+			border: 1px solid #dddddd;
+		}
+	</style>
+	<tr>
+		<th>content</th>
+		<th>requirement</th>
+	</tr>
+	<tr>
+		<td>Take all used towels/ face washers/ Bath mats away</td>
+		<td><p id="dirty_towels"></p></td>
+	</tr>
+	<tr>
+		<td>Dry the floor & shower screen & basin</td>
+		<td><p id="dry"></p></td>
+	</tr>
+	<tr>
+		<td>Wipe shower screens and mirror & dry with paper towels</td>
+		<td><p id="wipe"></p></td>
+	</tr>
+	<tr>
+		<td>Clean drains</td>
+		<td><p id="drain"></p></td>
+	</tr>
+	<tr>
+		<td>Wipe racks& taps & showerheads & dry with paper towels</td>
+		<td><p id="rack"></p></td>
+	</tr>
+	<tr>
+		<td>Clean the basin</td>
+		<td><p id="basin"></p></td>
+	</tr>
+	<tr>
+		<td>Wipe the surface</td>
+		<td><p id="surface"></p></td>
+	</tr>
+	<tr>
+		<td>Wipe the bathtub</td>
+		<td><p id="bathtub"></p></td>
+	</tr>
+	<tr>
+		<td>Check or replace shampoo/ body wash/ hand wash liquid</td>
+		<td><p id="replace"></p></td>
+	</tr>
+	<tr>
+		<td>Change the rubbish bin bag</td>
+		<td><p id="bin"></p></td>
+	</tr>
+	<tr>
+		<td>Change toilet papers & put spare</td>
+		<td><p id="toilet_paper"></p></td>
+	</tr>
+	<tr>
+		<td>Put clean towels</td>
+		<td><p id="dry"></p></td>
+	</tr>
+	<tr>
+		<td>Put clean hand towels</td>
+		<td><p id="clean_towels"></p></td>
+	</tr>
+	<tr>
+		<td>Put clean face wahsers</td>
+		<td><p id="clean_washers"></p></td>
+	</tr>
+	<tr>
+		<td>Put clean bathmat</td>
+		<td><p id="clean_bathmat"></p></td>
+	</tr>
+	<tr>
+		<td>Brush toilet</td>
+		<td><p id="brush_toilet"></p></td>
+	</tr>
+	<tr>
+  		<td><p id="extra_iterm"></p></td>
+    	<td><p id="extra_requirements"></p></td>
+  	</tr>  
 </table>
-Image:
-<br>
+Image:  
 <div id="divOne" data-role="main" class="ui-content">
   <a href="#popupOne" data-rel="popup" data-position-to="window">
   <img height = "160" width = "160" id="imgOne">
@@ -100,4 +120,3 @@ Image:
 </form>
 </body>
 </html>
-

@@ -20,7 +20,12 @@ function search() {
 			button.innerHTML = listRoom[i];
 			button.onclick = (function (roomType, propertyCode) { //jump to room job sheet page
 				//roomType.slice(0,-2) is to ignore the index of a room
-				location.href = roomType.slice(0,-2)+"_job_sheet.html?" + propertyCode + "&" + roomType;
+				if (roomType.slice(0,-2) == "bedroom" || roomType.slice(0,-2) == "bathroom") {
+					location.href = roomType.slice(0,-2)+"_job_sheet.html?" + propertyCode + "&" + roomType;
+				}
+				else{
+					location.href = roomType+"_job_sheet.html?" + propertyCode + "&" + roomType;	
+				}
 			}).bind(null, listRoom[i], propertyCode.value);
 			document.body.appendChild(button);
 		}
