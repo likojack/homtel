@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+</head>
+<body>
+<form>
+<table id="myTable">
+  <style>
+    td,th {
+      border: 1px solid #dddddd;
+    }
+    tr {
+      border: 1px solid #dddddd;
+    }
+  </style>
+  <tr>
+    <th>content</th>
+    <th>requirement</th>
+  </tr>
+  <tr>
+    <td>Extra Area Cleaning</td>
+    <td><input type="text" id="extra_area"></td>
+  </tr>
+  <tr>
+    <td>Check utility cabinet usage, report if need more supply</td>
+    <td><input type="text" id="check_utility"></td>
+  </tr>
+  <tr>
+    <td>Take photos & report</td>
+    <td><input type="text" id="photo_report"></td>
+  </tr>
+</table>
+Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
+<br>
+<button type="button" onclick = "upload()">Submit</button>
+<button type="button" onclick = "nextRoom()">Finish</button>
+<script src="final.js">
+</script>
+</form>
+</body>
+</html>
