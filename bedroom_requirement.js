@@ -40,30 +40,27 @@ function displayFile(event) {
 		if (img_counter == 0) { // display the first iamge
 			var img = document.getElementById("imgOne");
 			var imgPopup = document.getElementById("imgPopupOne");
-			img_reference[img_counter] = reader.result; 
 			img.src = reader.result;
 			imgPopup.src=reader.result;
-			console.log(img_reference.length);
+
 		}
 		else if (img_counter == 1) { // display the second iamge
 			var img = document.getElementById("imgTwo");
 			var imgPopup = document.getElementById("imgPopupTwo");
-			img_reference[img_counter] = reader.result; 
 			img.src = reader.result;
 			imgPopup.src=reader.result;
-			console.log(img_reference.length);
+
 		}
 		else if (img_counter == 2){ // display the third image
 			var img = document.getElementById("imgThree");
 			var imgPopup = document.getElementById("imgPopupThree");
-			img_reference[img_counter] = reader.result; 
 			img.src = reader.result;
 			imgPopup.src=reader.result;
-			console.log(img_reference.length);
 		}
 		img_counter = img_counter + 1;
 	}
 	reader.readAsDataURL(file[0]);
+	img_reference[img_counter] = file[0];
 
 }
 
@@ -78,20 +75,26 @@ function discardImage() {
 }
 
 function upload() {
-	firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
-		strip_protector: document.getElementById('strip_protector').value,
-		strip_fitted_sheet: document.getElementById('strip_fitted_sheet').value,
-		strip_flat_sheet: document.getElementById('strip_flat_sheet').value,
-		strip_quilt_cover: document.getElementById('strip_quilt_cover').value,
-		strip_pillowcases: document.getElementById('strip_pillowcases').value,
-		make_pillowcases: document.getElementById('make_pillowcases').value,
-		make_fitted_sheet: document.getElementById('make_fitted_sheet').value,
-		make_flat_sheet: document.getElementById('make_flat_sheet').value,
-		make_quilt_cover: document.getElementById('make_quilt_cover').value,
-		make_other_beddings: document.getElementById('make_other_beddings').value,
-		extra_iterm: document.getElementById('extra_iterm').value,
-		extra_requirements: document.getElementById('extra_requirements').value
-	});
+	// firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
+	// 	strip_protector: document.getElementById('strip_protector').value,
+	// 	strip_fitted_sheet: document.getElementById('strip_fitted_sheet').value,
+	// 	strip_flat_sheet: document.getElementById('strip_flat_sheet').value,
+	// 	strip_quilt_cover: document.getElementById('strip_quilt_cover').value,
+	// 	strip_pillowcases: document.getElementById('strip_pillowcases').value,
+	// 	make_pillowcases: document.getElementById('make_pillowcases').value,
+	// 	make_fitted_sheet: document.getElementById('make_fitted_sheet').value,
+	// 	make_flat_sheet: document.getElementById('make_flat_sheet').value,
+	// 	make_quilt_cover: document.getElementById('make_quilt_cover').value,
+	// 	make_other_beddings: document.getElementById('make_other_beddings').value,
+	// 	extra_iterm: document.getElementById('extra_iterm').value,
+	// 	extra_requirements: document.getElementById('extra_requirements').value
+	// });
+	if (img_reference.length > 0){
+		for(i = 0; i<img_reference.length;i++) {
+			var storageRef = firebase.storage().ref(propertyCode + "/" + ptRoom + "_" + ptNum + "/" + "image_" + i);
+			var task = storageRef.put(img_reference[i]);
+		}
+	}
 }
 
 
