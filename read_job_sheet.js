@@ -10,12 +10,10 @@ var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var roomType = query[1];
-var num_img = 0;
 myTable.innerHTML = "<b>"+roomType+"</b>";
 
 var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
-dbRefBedroom.on('value', (function (num_img,snapshot) {
-    num_img = snapshot.val().number_image;
+dbRefBedroom.on('value', function (snapshot) {
 	var jobSheetContent = snapshot.val();
     var filterContent = jobSheetContent.filter(function(item){return !('number_image' in item)});
     console.log(num_img);
@@ -23,9 +21,7 @@ dbRefBedroom.on('value', (function (num_img,snapshot) {
 	for (i = 0; i < listRoom.length; i++) {
 		document.getElementById(listRoom[i]).innerHTML = jobSheetContent[listRoom[i]];
 	}
-}).bind(null, num_img));
-
-console.log(num_img);
+});
  
 
 for(i=0;i<num_img;i++) {
