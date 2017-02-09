@@ -78,7 +78,7 @@ function upload() {
   });
   if (img_reference.length > 0){
     for(i = 0; i<img_reference.length;i++) {
-      var storageRef = firebase.storage().ref(propertyCode + "/" + ptRoom + "_" + ptNum + "/" + "image_" + i);
+      var storageRef = firebase.storage().ref(propertyCode + "/" + "mopping" + "/" + "image_" + i);
       var task = storageRef.put(img_reference[i]);
     }
   }
