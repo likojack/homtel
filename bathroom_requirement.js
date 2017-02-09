@@ -63,6 +63,7 @@ function displayFile(event) {
 		img_counter = img_counter + 1;
 	}
 	reader.readAsDataURL(file[0]);
+	img_reference[img_counter] = file[0];
 
 }
 
@@ -97,6 +98,12 @@ function upload() {
 		extra_requirements: document.getElementById('extra_requirements').value
 
 	});
+	if (img_reference.length > 0){
+		for(i = 0; i<img_reference.length;i++) {
+			var storageRef = firebase.storage().ref(propertyCode + "/" + ptRoom + "_" + ptNum + "/" + "image_" + i);
+			var task = storageRef.put(img_reference[i]);
+		}
+	}	
 }
 
 function nextRoom() {
