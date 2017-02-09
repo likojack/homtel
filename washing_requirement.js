@@ -32,18 +32,14 @@ function displayFile(event) {
     if (img_counter == 0) { // display the first iamge
       var img = document.getElementById("imgOne");
       var imgPopup = document.getElementById("imgPopupOne");
-      img_reference[img_counter] = reader.result; 
       img.src = reader.result;
       imgPopup.src=reader.result;
-      console.log(img_reference.length);
     }
     else if (img_counter == 1) { // display the second iamge
       var img = document.getElementById("imgTwo");
       var imgPopup = document.getElementById("imgPopupTwo");
-      img_reference[img_counter] = reader.result; 
       img.src = reader.result;
       imgPopup.src=reader.result;
-      console.log(img_reference.length);
     }
     else if (img_counter == 2){ // display the third image
       var img = document.getElementById("imgThree");
@@ -56,6 +52,7 @@ function displayFile(event) {
     img_counter = img_counter + 1;
   }
   reader.readAsDataURL(file[0]);
+  img_reference[img_counter] = file[0];
 
 }
 
@@ -76,6 +73,12 @@ function upload() {
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
+  if (img_reference.length > 0){
+    for(i = 0; i<img_reference.length;i++) {
+      var storageRef = firebase.storage().ref(propertyCode + "/washing/" + "image_" + i);
+      var task = storageRef.put(img_reference[i]);
+    }
+  }
 }
 
 function nextRoom() {
