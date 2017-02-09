@@ -1,20 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 <form id="myForm">
-	<style>
-	td,th {
-		border: 1px solid #dddddd;
-	}
-	tr {
-		border: 1px solid #dddddd;
-	}
-	</style>
+  <style>
+  td,th {
+    border: 1px solid #dddddd;
+  }
+  tr {
+    border: 1px solid #dddddd;
+  }
+  </style>
 <table id='myTable'>
   <tr>
     <th>Content</th>
@@ -28,51 +30,72 @@
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td><p id="strip_flat_sheet"></p></td>
+    <td><p id="strip_fitted_sheet"></p></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td></td>
+    <td><p id="strip_flat_sheet"></p></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td></td>
+    <td><p id="strip_quilt_cover"></p></td>
   </tr>
   <tr>
     <td>Pillowcases</td>
-    <td></td>
+    <td><p id="strip_pillowcases"></p></td>
   </tr>
   <tr>
     <td rowspan="5"> Make</td>
     <td>Pillowcases</td>
-    <td></td>
+    <td><p id="make_pillowcases"></p></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td></td>
+    <td><p id="make_fitted_sheet"></p></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td></td>
+    <td><p id="make_flat_sheet"></p></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td></td>
+    <td><p id="make_quilt_cover"></p></td>
   </tr>
   <tr>
     <td>Other beddings (cushion, decoration)</td>
-    <td></td>
+    <td><p id="make_other_beddings"></p></td>
   </tr>
   <tr>
-  	<td colspan="2"></td>
-    <td></td>
+    <td colspan="2"><p id="extra_iterm"></p></td>
+    <td><p id="extra_requirements"></p></td>
   </tr>  
 </table>
-Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
+Image:
 <br>
-<button type="button" formmethod="post" onclick='upload()'>save</button>
-<button type="submit" formmethod="post" onclick='nextRoom()'>next step</button>
-<script src='bedroom_job_sheet.js'>
+<div id="divOne" data-role="main" class="ui-content">
+  <a href="#popupOne" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgOne">
+  <div data-role="popup" id="popupOne">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupOne" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupTwo" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgTwo">
+  <div data-role="popup" id="popupTwo">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupTwo" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupThree" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgThree">
+  <div data-role="popup" id="popupThree">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupThree" style="width:400px;height:600px;">
+  </div>
+</div>
+<button type="button" formmethod="post" onclick='back()'>Back</button>
+<script src='read_job_sheet.js'>
 </script>
 </form>
 </body>

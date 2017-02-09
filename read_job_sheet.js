@@ -6,9 +6,11 @@ var config = {
     messagingSenderId: "389458058945"
   };
 firebase.initializeApp(config);
+var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
-//query[0]: property code
-//query[1]: room name
+var propertyCode = query[0];
+var roomType = query[1];
+myTable.innerHTML = "<b>"+roomType+"</b>";
 
 var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
 dbRefBedroom.on('value', function (snapshot) {
@@ -18,3 +20,7 @@ dbRefBedroom.on('value', function (snapshot) {
 		document.getElementById(listRoom[i]).innerHTML = jobSheetContent[listRoom[i]];
 	}
 });
+
+function back() {
+    window.history.go(-1);
+}
