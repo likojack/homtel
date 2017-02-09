@@ -10,13 +10,14 @@ var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var roomType = query[1];
+var num_done = query[2];
+
+var num_img = 3; // maximum number of image is 3
 myTable.innerHTML = "<b>"+roomType+"</b>";
 
 var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
 dbRefBedroom.on('value', function (snapshot) {
 	var jobSheetContent = snapshot.val();
-    var filterContent = jobSheetContent.filter(function(item){return !('number_image' in item)});
-    console.log(num_img);
 	var listRoom = Object.keys(jobSheetContent); //read service content
 	for (i = 0; i < listRoom.length; i++) {
 		document.getElementById(listRoom[i]).innerHTML = jobSheetContent[listRoom[i]];
@@ -66,11 +67,11 @@ function back() {
     //console.log(checkboxes_checked.length + ' checkboxes checked');
     if (checkboxes_checked.length === checkboxes_all.length) {
         //all checkboxes are checked
-        location.href = 'search_job_sheet.html?'+ propertyCode;
+        location.href = 'property_home.html?'+ propertyCode + "&" + propertyCode +"&"+(parseInt(num_done) + 1) +"&"+ roomType;
         console.log (propertyCode);
     } else {
         // there are some unchecked checkboxes
-        alert("You have finishsh jobs in " + roomType+ "!");
+        alert("You have unfinished jobs in " + roomType+ "!");
     }
     
 }
