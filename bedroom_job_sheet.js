@@ -7,11 +7,13 @@ var config = {
   };
 firebase.initializeApp(config);
 var query = window.location.search.substring(1).split("&");
+//query[0]: property code
+//query[1]: room name
 
-var dbRefBedroom = firebase.database().ref("job_sheet_test/").child(query[0]).child(query[1]);
+var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
 dbRefBedroom.on('value', function (snapshot) {
 	var jobSheetContent = snapshot.val()
-	var listRoom = Object.keys(jobSheetContent);
+	var listRoom = Object.keys(jobSheetContent); //read service content
 	for (i = 0; i < listRoom.length; i++) {
 		document.getElementById(listRoom[i]).innerHTML = jobSheetContent[listRoom[i]];
 	}
