@@ -24,7 +24,6 @@ function search() {
 			}).bind(null, listRoom[i], propertyCode.value);
 			document.body.appendChild(button);
 		}
-		location.href = ""
 	});
 
 }
