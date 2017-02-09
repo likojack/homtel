@@ -63,5 +63,17 @@ for(i=0;i<num_img;i++) {
 }
 
 function back() {
-    window.history.go(-1);
+
+    var checkboxes_all = document.querySelectorAll("input[type='checkbox']");
+    var checkboxes_checked = document.querySelectorAll("input[type='checkbox']:checked");
+    //console.log(checkboxes_all.length);
+    //console.log(checkboxes_checked.length + ' checkboxes checked');
+    if (checkboxes_checked.length === checkboxes_all.length) {
+        //all checkboxes are checked
+        window.history.go(-1);
+    } else {
+        // there are some unchecked checkboxes
+        alert("You have finishsh jobs in " + roomType+ "!");
+    }
+    
 }
