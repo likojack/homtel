@@ -11,8 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Ironing"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
-var washing = query[2];//"%" means not required
-var ironing = query[3];//"%" means not required
+var washing = query[2];//"!" means not required
+var ironing = query[3];//"!" means not required
 
 function upload() {
   firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'ironing').set({

@@ -11,8 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Vacuuming"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
-var washing = query[2];//"%" means not required
-var ironing = query[3];//"%" means not required
+var washing = query[2];//"!" means not required
+var ironing = query[3];//"!" means not required
 //count how many images has been uploaded
 var img_counter = 0;
 var img_reference = [];

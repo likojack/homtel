@@ -14,8 +14,8 @@ var numBed = query[1];
 var numBath = query[2];
 var ptRoom = query[3];
 var ptNum = query[4]; 
-var washing = query[5];//"%" means not required
-var ironing = query[6];//"%" means not required
+var washing = query[5];//"!" means not required
+var ironing = query[6];//"!" means not required
 
 //count how many images has been uploaded
 var img_counter = 0;

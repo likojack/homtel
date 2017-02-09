@@ -11,8 +11,8 @@ var myTable = document.getElementById('myTable').createCaption();
 myTable.innerHTML = "<b>"+"Washing"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
-var washing = query[2];//"%" means not required
-var ironing = query[3];//"%" means not required
+var washing = query[2];//"!" means not required
+var ironing = query[3];//"!" means not required
 
 //count how many images has been uploaded
 var img_counter = 0;
@@ -81,7 +81,7 @@ function upload() {
 function nextRoom() {
 	if (ironing == 'I'){ //require ironing
       window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"ironing"+"&"+washing+"&"+ironing; 
-    } else if (ironing =='%'){ // no ironing required
+    } else if (ironing =='!'){ // no ironing required
       window.location.href = 'final.html?'+propertyCode+"&"+"final"; 
     }
 }

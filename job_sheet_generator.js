@@ -136,6 +136,7 @@ function writePropertyInfo() { //write property info to database
 		ironing = document.getElementById('ironingNo').value;
 	}
 
+	generateServiceCode();
 
 	firebase.database().ref('properties/' + document.getElementById("propertyCode").value).set({
 		property_type: propertyType,
@@ -155,7 +156,6 @@ function writePropertyInfo() { //write property info to database
 		cleaning: cleaning,
 		washing: washing,
 		ironing: ironing,
-		//service_code : generateServiceCode()
 		service_code : document.getElementById("service_code").innerText
 	});
 
@@ -189,13 +189,13 @@ function nextRoom() {
 			if (document.getElementById('ironingYes').checked) {
 				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"%";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"!";
 			}
 		} else if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"%"+"&"+"I";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"!"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"%"+"&"+"%";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"!"+"&"+"!";
 			}
 		}
 		
@@ -204,11 +204,11 @@ function nextRoom() {
 			if (document.getElementById('ironingYes').checked) {
 				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"%";
+				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"!";
 			}
 		} else  if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked){
-				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'ironing'+"&"+'0'+"&"+"%"+"&"+"I";
+				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("propertyCode").value+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'ironing'+"&"+'0'+"&"+"!"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
 				alert("Please choose a service!");
 			}
