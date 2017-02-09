@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<body>
+<form>
+<table id="myTable">
+  <style>
+    td,th {
+      border: 1px solid #dddddd;
+    }
+    tr {
+      border: 1px solid #dddddd;
+    }
+  </style>
+  <tr>
+    <th>content</th>
+    <th>requirement</th>
+    <th> Check Box </th>
+  </tr>
+  <tr>
+    <td>Extra Area Cleaning</td>
+    <td><input type="text" id="extra_area"></td>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <td>Check utility cabinet usage, report if need more supply</td>
+    <td><input type="text" id="check_utility"></td>
+    <td><input type="checkbox"></td>
+  </tr>
+  <tr>
+    <td>Take photos & report</td>
+    <td><input type="text" id="photo_report"></td>
+    <td><input type="checkbox"></td>
+  </tr>
+</table>
+Image:  
+<div id="divOne" data-role="main" class="ui-content">
+  <a href="#popupOne" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgOne">
+  <div data-role="popup" id="popupOne">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupOne" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupTwo" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgTwo">
+  <div data-role="popup" id="popupTwo">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupTwo" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupThree" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgThree">
+  <div data-role="popup" id="popupThree">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupThree" style="width:400px;height:600px;">
+  </div>
+</div>
+<button type="button" formmethod="post" onclick='back()'>Back</button>
+<script src="read_job_sheet.js">
+</script>
+</form>
+</body>
+</html>

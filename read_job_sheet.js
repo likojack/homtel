@@ -29,7 +29,8 @@ function back() {
     //console.log(checkboxes_checked.length + ' checkboxes checked');
     if (checkboxes_checked.length === checkboxes_all.length) {
         //all checkboxes are checked
-        window.history.go(-1);
+        location.href = 'search_job_sheet.html?'+ propertyCode;
+        console.log (propertyCode);
     } else {
         // there are some unchecked checkboxes
         alert("You have finishsh jobs in " + roomType+ "!");
