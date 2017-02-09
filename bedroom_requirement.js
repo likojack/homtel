@@ -17,6 +17,10 @@ var ptNum = query[4];
 var washing = query[5];//"%" means not required
 var ironing = query[6];//"%" means not required
 
+//count how many images has been uploaded
+var img_counter = 0;
+var img_reference = [];
+
 if (ptNum <= numBed) { //record the current bedroom requirement
 	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
@@ -29,20 +33,49 @@ if (window.File && window.FileReader && window.FileList && window.Blob) {
 }
 
 function displayFile(event) {
-	//only read one image one time, because it is read from camera
+	//only read one image at once, because it is read from camera
 	var file = event.target.files;
-	console.log(file);
 	var reader = new FileReader();
 	reader.onload = function() {
-		var img = document.createElement('img');
-		img.height = '160';
-		img.width = '160';
-		img.src = reader.result;
-		document.getElementById('list').insertBefore(img,null);
+		if (img_counter == 0) { // display the first iamge
+			var img = document.getElementById("imgOne");
+			var imgPopup = document.getElementById("imgPopupOne");
+			img_reference[img_counter] = reader.result; 
+			img.src = reader.result;
+			imgPopup.src=reader.result;
+			console.log(img_reference.length);
+		}
+		else if (img_counter == 1) { // display the second iamge
+			var img = document.getElementById("imgTwo");
+			var imgPopup = document.getElementById("imgPopupTwo");
+			img_reference[img_counter] = reader.result; 
+			img.src = reader.result;
+			imgPopup.src=reader.result;
+			console.log(img_reference.length);
+		}
+		else if (img_counter == 2){ // display the third image
+			var img = document.getElementById("imgThree");
+			var imgPopup = document.getElementById("imgPopupThree");
+			img_reference[img_counter] = reader.result; 
+			img.src = reader.result;
+			imgPopup.src=reader.result;
+			console.log(img_reference.length);
+		}
+		img_counter = img_counter + 1;
 	}
 	reader.readAsDataURL(file[0]);
+
 }
 
+function discardImage() {
+	//reset image counter, image referecne and clear the content of img tags
+	img_counter = 0;
+	img_reference = [];
+	console.log(img_reference.length);
+	document.getElementById("imgOne").src = "";
+	document.getElementById("imgTwo").src = "";
+	document.getElementById("imgThree").src = "";
+}
 
 function upload() {
 	firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
