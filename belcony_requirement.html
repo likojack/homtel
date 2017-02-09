@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <title></title>
-  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
 <form>
@@ -41,8 +43,30 @@
     <td><input type="text" id="extra_requirements"></td>
   </tr>
 </table>
-Capture Image: <input type="file" accept="image/*" id="capture" capture="camera"> 
-<br>
+Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
+<div id="divOne" data-role="main" class="ui-content">
+  <a href="#popupOne" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgOne">
+  <div data-role="popup" id="popupOne">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupOne" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupTwo" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgTwo">
+  <div data-role="popup" id="popupTwo">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupTwo" style="width:400px;height:600px;">
+  </div>
+
+  <a href="#popupThree" data-rel="popup" data-position-to="window">
+  <img height = "160" width = "160" id="imgThree">
+  <div data-role="popup" id="popupThree">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupThree" style="width:400px;height:600px;">
+  </div>
+</div>
+<button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
 <button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="belcony_requirement.js">
