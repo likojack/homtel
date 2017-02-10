@@ -79,5 +79,5 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'final.html?'+propertyCode+"&"+"final"; 
+	window.location.href = 'final_requirement.html?'+propertyCode+"&"+"final"; 
 }
