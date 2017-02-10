@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<form>
+<div id="propertyInfo"> 
+	Property Info <br><p></p>
+	
+	Property Type: 
+	<input type="radio" id="Unit" name="propertyType" value="Unit"> Unit
+	<input type="radio" id="Apartment" name="propertyType" value="Apartment"> Apartment
+	<input type="radio" id="Townhouse" name="propertyType" value="Townhouse" > Townhouse
+	<input type="radio" id="House" name="propertyType" value="House"> House
+	<br>
+
+	Property Address: <br>
+	Street: <input type="text" id="property_street"><br>
+	City: <input type="text" id="property_city"><br>
+	State: <input type="text" id="property_state"><br>
+	Postcode: <input type="text" id="property_postcode"><br>
+	Country: <input type="text" id="property_country"><br>
+	Parking Provided: 
+	<input type="radio" id="parkingYes" name="parking" value="parkingYes"> Yes
+	<input type="radio" id="parkingNo" name="parking" value="parkingNo"> No
+	<br>
+	Front Door lock type:
+	<input type="radio" id="doorKeyHole" name="frontDoorLock" value="doorKeyHole"> Key Hole
+	<input type="radio" id="doorPassCodeAndKeys" name="frontDoorLock" value="doorPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
+	<input type="radio" id="doorPassCode" name="frontDoorLock" value="doorPassCode"> Passcode
+
+	<br>
+	Front door access detail:
+	<input type="text" id="front_door_access">
+	<br>
+	Utility Cabinet Lock Type:
+	<input type="radio" id="utilityKeyHole" name="utilityLock" value="utilityKeyHole"> Key Hole
+	<input type="radio" id="utilityPassCodeAndKeys" name="utilityLock" value="utilityPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
+	<input type="radio" id="utilityPassCode" name="utilityLock" value="utilityPassCode"> Passcode
+	<br>
+	Utility Cabinet Access Detail:
+	<input type="text" id="utility_access">
+	<br>
+</div>
+
+
+
+
+
+</div>
+
+<p></p>
+<button type="button" onclick="update()">update</button>
+</form>
+<script src="edit_property_info.js">
+</script>
+</body>

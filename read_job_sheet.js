@@ -46,9 +46,8 @@ dbRefJobSheet.on('value', function (snapshot){
 for(i=0;i<num_img;i++) {
     var storageRef = firebase.storage();
     var imgRef = storageRef.ref(propertyCode + "/" + roomType + "/" + "image_" + i);
-    console.log(i);
     imgRef.getDownloadURL().then((function(i,url) {
-        console.log(i);
+        console.log(i + " " + url);
         var imgIndex = ["imgOne", "imgTwo", "imgThree"];
         var imgPopupIndex = ["imgPopupOne", "imgPopupTwo", "imgPopupThree"];
         var img = document.getElementById(imgIndex[i]);
@@ -56,22 +55,10 @@ for(i=0;i<num_img;i++) {
         img.src = url;
         imgPopup.src = url;
     }).bind(null, i)).catch(function(error) {
+        
         switch (error.code) {
-            case 'storage/object_not_found':
-            console.log("exceed the maximum");
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log("11");
-              break;
-
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log("22");
-              break;
-            case 'storage/unknown':
-            // Unknown error occurred, inspect the server response
-            console.log("33");
-            break;
+            case "stroage/object_not_found":
+            alert("file doesn't exist");
         }
     });
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  </head>
+  <body>
+    <form>
+      <table id="myTable">
+        <style>
+        td, th {
+          border: 1px solid #dddddd;
+        }
+        tr {
+          border: 1px solid #dddddd;
+        }
+        </style>
+        <tr>
+          <td>customer code</td>
+          <td><input type="text" id="customerCode"></td>
+        </tr>
+      </table>
+      <button type="button" onclick="searchCustomer()">search customer</button>
+      <script type="text/javascript">
+        var config = {
+        apiKey: "AIzaSyAoh8pzoi-rZ8X0OVHi3JT1_YmH6fZCkgI",
+        authDomain: "homtel-63eec.firebaseapp.com",
+        databaseURL: "https://homtel-63eec.firebaseio.com",
+        storageBucket: "homtel-63eec.appspot.com",
+        messagingSenderId: "389458058945"
+        };
+        firebase.initializeApp(config);
+      function searchCustomer() {
+        var customerCode = document.getElementById("customerCode");
+        var dbCustomerRef = firebase.database().ref("customers");
+        dbCustomerRef.on("value", function(snapshot){
+          if(snapshot.hasChild(customerCode.value)) {
+            //go to next page
+            location.href = "edit_customer.html?" + customerCode.value;
+
+          }
+          else {
+            alert("Please insert correct customer code. customer doesn't exist");
+          }
+
+        });
+      }
+      </script>
+    </form>
+  </body>
+</html>
