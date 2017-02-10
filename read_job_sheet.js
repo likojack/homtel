@@ -52,11 +52,11 @@ function back() {
     //console.log(checkboxes_checked.length + ' checkboxes checked');
     if (checkboxes_checked.length === checkboxes_all.length) {
         //all checkboxes are checked
-        location.href = 'search_job_sheet.html?'+ propertyCode;
+        location.href = 'property_home.html?'+ propertyCode + "&" + propertyCode +"&"+(parseInt(num_done) + 1) +"&"+ roomType;
         console.log (propertyCode);
     } else {
         // there are some unchecked checkboxes
-        alert("You have finishsh jobs in " + roomType+ "!");
+        alert("You have unfinished jobs in " + roomType+ "!");
     }
     
 }
