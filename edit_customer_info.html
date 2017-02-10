@@ -1,24 +1,32 @@
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<title></title>
-	<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
+<body>
 <form>
 <div id="customerInfo"> 
 	Customer Info <br><p></p>
 
-	First name: <input type="text" id='fName'>
-	Last name: <input type="text" id='lName'><br>
-	Customer code: <input type="text" id="customerCode"><br>
+	First name: <input type="text" id='first_name'>
+	Last name: <input type="text" id='last_name'><br>
 	Mobile: <input type="text" id="mobile"><br>
-	Contact Number 2: <input type="text" id = "contactNumber2"><br>
+	Contact Number 2: <input type="text" id = "contact_number_2"><br>
 	Email: <input type="text" id="email"><br>
 	Billing Address: <br>
-	Street: <input type="text" id="billStreet"><br>
-	City: <input type="text" id="billCity"><br>
-	State: <input type="text" id="billState"><br>
-	Postcode: <input type="text" id="billPostcode"><br>
-	Country: <input type="text" id="billCountry"><br>
+	Street: <input type="text" id="bill_street"><br>
+	City: <input type="text" id="bill_city"><br>
+	State: <input type="text" id="bill_state"><br>
+	Postcode: <input type="text" id="bill_postcode"><br>
+	Country: <input type="text" id="bill_country"><br>
 </div>
 <p></p>
+<button type="button" onclick="update()">update</button>
 </form>
+<script src="edit_customer_info.js">
+</script>
+</body>

@@ -10,13 +10,12 @@ var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var roomType = query[1];
+var num_img = 3;
 myTable.innerHTML = "<b>"+roomType+"</b>";
 
 var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
 dbRefBedroom.on('value', function (snapshot) {
 	var jobSheetContent = snapshot.val();
-    var filterContent = jobSheetContent.filter(function(item){return !('number_image' in item)});
-    console.log(num_img);
 	var listRoom = Object.keys(jobSheetContent); //read service content
 	for (i = 0; i < listRoom.length; i++) {
 		document.getElementById(listRoom[i]).innerHTML = jobSheetContent[listRoom[i]];
@@ -27,9 +26,8 @@ dbRefBedroom.on('value', function (snapshot) {
 for(i=0;i<num_img;i++) {
     var storageRef = firebase.storage();
     var imgRef = storageRef.ref(propertyCode + "/" + roomType + "/" + "image_" + i);
-    console.log(i);
     imgRef.getDownloadURL().then((function(i,url) {
-        console.log(i);
+        console.log(i + " " + url);
         var imgIndex = ["imgOne", "imgTwo", "imgThree"];
         var imgPopupIndex = ["imgPopupOne", "imgPopupTwo", "imgPopupThree"];
         var img = document.getElementById(imgIndex[i]);
@@ -37,22 +35,10 @@ for(i=0;i<num_img;i++) {
         img.src = url;
         imgPopup.src = url;
     }).bind(null, i)).catch(function(error) {
+        
         switch (error.code) {
-            case 'storage/object_not_found':
-            console.log("exceed the maximum");
-            case 'storage/unauthorized':
-              // User doesn't have permission to access the object
-              console.log("11");
-              break;
-
-            case 'storage/canceled':
-              // User canceled the upload
-              console.log("22");
-              break;
-            case 'storage/unknown':
-            // Unknown error occurred, inspect the server response
-            console.log("33");
-            break;
+            case "stroage/object_not_found":
+            alert("file doesn't exist");
         }
     });
 

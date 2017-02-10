@@ -13,14 +13,16 @@
 			<button type="button" onclick="directProperty()">edit property</button>
 			<button type="button" onclick="directJobSheet()">edit job sheet</button>
 			<script type="text/javascript">
+				var customerCode = window.location.search.substring(1);
+
 				function directCustomer() {
-					location.href = "edit_customer_info.html"
+					location.href = "edit_customer_info.html?" + customerCode;
 				}
 				function directProperty() {
-					location.href = "edit_property_list.html"
+					location.href = "edit_property_list.html" + customerCode;
 				}
 				function directJobSheet() {
-					location.href = "edit_job_sheet_list.html"
+					location.href = "edit_job_sheet_list.html" + customerCode;
 				}
 			</script>
 		</form>
