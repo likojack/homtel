@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -17,7 +17,7 @@
 		border: 1px solid #dddddd;
 	}
 	</style>
-<table id='myTable'>
+<table id='myTable' width="100%">
   <tr>
     <th>Content</th>
     <th>Detail</th>
@@ -26,48 +26,48 @@
   <tr>
     <td rowspan="5">Strip</td>
     <td>Protector</td>
-    <td><input type="text" id="strip_protector"></td>
+    <td><textarea type="text" id="strip_protector"></textarea></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td><input type="text" id="strip_fitted_sheet"></td>
+    <td><textarea type="text" id="strip_fitted_sheet"></textarea></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td><input type="text" id="strip_flat_sheet"></td>
+    <td><textarea type="text" id="strip_flat_sheet"></textarea></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td><input type="text" id="strip_quilt_cover"></td>
+    <td><textarea type="text" id="strip_quilt_cover"></textarea></td>
   </tr>
   <tr>
     <td>Pillowcases</td>
-    <td><input type="text" id="strip_pillowcases"></td>
+    <td><textarea type="text" id="strip_pillowcases"></textarea></td>
   </tr>
   <tr>
     <td rowspan="5"> Make</td>
     <td>Pillowcases</td>
-    <td><input type="text" id="make_pillowcases"></td>
+    <td><textarea type="text" id="make_pillowcases"></textarea></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td><input type="text" id="make_fitted_sheet"></td>
+    <td><textarea type="text" id="make_fitted_sheet"></textarea></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td><input type="text" id="make_flat_sheet"></td>
+    <td><textarea type="text" id="make_flat_sheet"></textarea></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td><input type="text" id="make_quilt_cover"></td>
+    <td><textarea type="text" id="make_quilt_cover"></textarea></td>
   </tr>
   <tr>
     <td>Other beddings (cushion, decoration)</td>
-    <td><input type="text" id="make_other_beddings"></td>
+    <td><textarea type="text" id="make_other_beddings"></textarea></td>
   </tr>
   <tr>
-  	<td colspan="2"><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+  	<td colspan="2"><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera"> 
@@ -95,8 +95,7 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
   </div>
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
-<button type="button" formmethod="post" onclick='upload()'>save</button>
-<button type="button" formmethod="post" onclick='nextRoom()'>next step</button>
+<button type="button" formmethod="post" onclick='upload()'>next step</button>
 <script src='bedroom_requirement.js'>
 </script>
 </form>

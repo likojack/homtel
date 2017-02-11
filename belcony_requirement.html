@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id='myTable'>
+<table id='myTable' width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,23 +24,23 @@
   </tr>
   <tr>
     <td>Sweep the ground</td>
-    <td><input type="text" id = "sweep"></td>
+    <td><textarea type="text" id = "sweep"></textarea></td>
   </tr>
   <tr>
     <td>Check BBQ (*Deep clean for extra)</td>
-    <td><input type="text" id = "bbq"></td>
+    <td><textarea type="text" id = "bbq"></textarea></td>
   </tr>
   <tr>
     <td>Check and clean cobweb</td>
-    <td><input type="text" id = "cobweb"></td>
+    <td><textarea type="text" id = "cobweb"></textarea></td>
   </tr>
   <tr>
     <td>Wipe tables & chairs</td>
-    <td><input type="text" id = "wipe"></td>
+    <td><textarea type="text" id = "wipe"></textarea></td>
   </tr>
   <tr>
-    <td><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -68,7 +68,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="belcony_requirement.js">
 </script>
 </form>

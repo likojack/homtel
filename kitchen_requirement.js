@@ -65,7 +65,7 @@ function discardImage() {
 }
 
 function upload() {
-  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'kitchen').set({
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'kitchen').set({
     dishwasher: document.getElementById("dishwasher").value,
     fridge: document.getElementById("fridge").value,
     microwave: document.getElementById("microwave").value,
@@ -79,12 +79,24 @@ function upload() {
     extra_requirements: document.getElementById('extra_requirements').value
 
   });
-  if (img_reference.length > 0){
-    for(i = 0; i<img_reference.length;i++) {
-        var storageRef = firebase.storage().ref(propertyCode + "/" + "kitchen" + "/" + "image_" + i);
-        var task = storageRef.put(img_reference[i]);
-    }
-  }
+  info_task.then(function() {
+        if (img_reference.length > 0){
+            for(i = 0; i<img_reference.length;i++) {
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "kitchen" + "/" + "image_" + i);
+                var task = storageRef.put(img_reference[i]);
+                if (i==img_reference.length-1) {
+                    task.on('state_changed',function(){}, function(){}, function(){ //when complete
+                        nextRoom();
+                    });
+                }
+            }
+
+        }
+        else{
+            nextRoom();
+        }
+        
+    });
 }
 
 function nextRoom() {

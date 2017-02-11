@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id='myTable'>
+<table id='myTable' width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,15 +24,15 @@
   </tr>
   <tr>
     <td>Wipe all the surface</td>
-    <td><input type="text" id = "surface"></td>
+    <td><textarea type="text" id = "surface"></textarea></td>
   </tr>
   <tr>
     <td>Clean the sink</td>
-    <td><input type="text" id = "sink"></td>
+    <td><textarea type="text" id = "sink"></textarea></td>
   </tr>
   <tr>
-    <td><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -60,7 +60,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" onclick = "nextRoom()">next step</button>
 <script src="laundry_requirement.js">
 </script>
 </form>

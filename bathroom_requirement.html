@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id='myTable'>
+<table id='myTable' width="100%">
 	<style>
 		td,th {
 			border: 1px solid #dddddd;
@@ -24,73 +24,74 @@
 	</tr>
 	<tr>
 		<td>Take all used towels/ face washers/ Bath mats away</td>
-		<td><input type="text" id="dirty_towels"></td>
+		<td><textarea type="text" id="dirty_towels"></textarea></td>
 	</tr>
 	<tr>
 		<td>Dry the floor & shower screen & basin</td>
-		<td><input type="text"  id="dry"></td>
+		<td><textarea type="text"  id="dry"></textarea></td>
 	</tr>
 	<tr>
 		<td>Wipe shower screens and mirror & dry with paper towels</td>
-		<td><input type="text" id="wipe"></td>
+		<td><textarea type="text" id="wipe"></textarea></td>
 	</tr>
 	<tr>
 		<td>Clean drains</td>
-		<td><input type="text" id="drain"></td>
+		<td><textarea type="text" id="drain"></textarea></td>
 	</tr>
 	<tr>
 		<td>Wipe racks& taps & showerheads & dry with paper towels</td>
-		<td><input type="text" id="rack"></td>
+		<td><textarea type="text" id="rack"></textarea></td>
 	</tr>
 	<tr>
 		<td>Clean the basin</td>
-		<td><input type="text" id="basin"></td>
+		<td><textarea type="text" id="basin"></textarea></td>
 	</tr>
 	<tr>
 		<td>Wipe the surface</td>
-		<td><input type="text" id="surface"></td>
+		<td><textarea type="text" id="surface"></textarea></td>
 	</tr>
 	<tr>
 		<td>Wipe the bathtub</td>
-		<td><input type="text" id="bathtub"></td>
+		<td><textarea type="text" id="bathtub"></textarea></td>
 	</tr>
 	<tr>
 		<td>Check or replace shampoo/ body wash/ hand wash liquid</td>
-		<td><input type="text" id="replace"></td>
+		<td><textarea type="text" id="replace"></textarea></td>
 	</tr>
 	<tr>
 		<td>Change the rubbish bin bag</td>
-		<td><input type="text" id="bin"></td>
+		<td><textarea type="text" id="bin"></textarea></td>
 	</tr>
 	<tr>
 		<td>Change toilet papers & put spare</td>
-		<td><input type="text" id="toilet_paper"></td>
+		<td><textarea type="text" id="toilet_paper"></textarea></td>
 	</tr>
 	<tr>
 		<td>Put clean towels</td>
-		<td><input type="text" id="dry"></td>
+		<td><textarea type="text" id="dry"></textarea></td>
 	</tr>
 	<tr>
 		<td>Put clean hand towels</td>
-		<td><input type="text" id="clean_towels"></td>
+		<td><textarea type="text" id="clean_towels"></textarea></td>
 	</tr>
 	<tr>
 		<td>Put clean face wahsers</td>
-		<td><input type="text" id="clean_washers"></td>
+		<td><textatea type="text" id="clean_washers"></textarea></td>
 	</tr>
 	<tr>
 		<td>Put clean bathmat</td>
-		<td><input type="text" id="clean_bathmat"></td>
+		<td><textarea type="text" id="clean_bathmat"></textarea></td>
 	</tr>
 	<tr>
 		<td>Brush toilet</td>
-		<td><input type="text" id="brush_toilet"></td>
+		<td><textarea type="text" id="brush_toilet"></textarea></td>
 	</tr>
 	<tr>
-  		<td><input type="text" id="extra_iterm"></td>
-    	<td><input type="text" id="extra_requirements"></td>
+  		<td><textarea type="text" id="extra_iterm"></textarea></td>
+    	<td><textarea type="text" id="extra_requirements"></textarea></td>
   	</tr>  
 </table>
+<br>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
 <div id="divOne" data-role="main" class="ui-content">
   <a href="#popupOne" data-rel="popup" data-position-to="window">
@@ -116,7 +117,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" formmethod="post" onclick = "upload()">save</button>
-<button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="bathroom_requirement.js">
 </script>
 </form>

@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id="myTable">
+<table id="myTable" width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,22 +24,22 @@
   </tr>
   <tr>
     <td>All carpet area</td>
-    <td><input type="text" id = "carpet"></td>
+    <td><textarea type="text" id = "carpet"></textarea></td>
   </tr>
   <tr>
     <td>All floor corner (e.g., kitchen floor corner)</td>
-    <td><input type="text" id = "corners"></td>
+    <td><textarea type="text" id = "corners"></textarea></td>
   </tr>
   <tr>
     <td>Vents</td>
-    <td><input type="text" id = "vents"></td>
+    <td><textarea type="text" id = "vents"></textarea></td>
   </tr>
   <tr>
     <td>Fly screens</td>
-    <td><input type="text" id = "fly_screens"></td>
+    <td><textarea type="text" id = "fly_screens"></textarea></td>
   <tr>
-    <td><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -67,7 +67,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" onclick = "nextRoom()">next step</button>
 <script src="vacuum_requirement.js">
 </script>
 </form>

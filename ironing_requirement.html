@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id="myTable">
+<table id="myTable" width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,7 +24,7 @@
   </tr>
   <tr>
     <td>Ironing</td>
-    <td><input type="text" id="ironing_requirement"></td>
+    <td><textarea type="text" id="ironing_requirement"></textarea></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -50,8 +50,8 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
     <img id="imgPopupThree" style="width:400px;height:600px;">
   </div>
 </div>
+<button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" onclick = "nextRoom()">next step</button>
 <script src="ironing_requirement.js">
 </script>
 </form>

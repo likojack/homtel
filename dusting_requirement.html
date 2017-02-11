@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id="myTable">
+<table id="myTable" width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,35 +24,35 @@
   </tr>
   <tr>
     <td>Switches</td>
-    <td><input type="text" id = "switches"></td>
+    <td><textarea type="text" id = "switches"></textarea></td>
   </tr>
   <tr>
     <td>Selves</td>
-    <td><input type="text" id = "selves"></td>
+    <td><textarea type="text" id = "selves"></textarea></td>
   </tr>
   <tr>
     <td>Door handles</td>
-    <td><input type="text" id = "handles"></td>
+    <td><textarea type="text" id = "handles"></textarea></td>
   </tr>
   <tr>
     <td>Tables & chairs & sofas </td>
-    <td><input type="text" id = "tables"></td>
+    <td><textarea type="text" id = "tables"></textarea></td>
   </tr>
   <tr>
     <td>Bedframes</td>
-    <td><input type="text" id = "frames"></td>
+    <td><textarea type="text" id = "frames"></textarea></td>
   </tr>
   <tr>
     <td>Wipe mirrors/ wardrobes & dry with paper towels</td>
-    <td><input type="text" id = "mirrors"></td>
+    <td><textarea type="text" id = "mirrors"></textarea></td>
   </tr>
   <tr>
     <td>Wipe windows/ flyscreens & dry with paper towels</td>
-    <td><input type="text" id = "windows"></td>
+    <td><textarea type="text" id = "windows"></textarea></td>
   </tr>
   <tr>
-    <td><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -80,7 +80,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" formmethod="post" onclick = "nextRoom()">next step</button>
 <script src="dusting_requirement.js">
 </script>
 </form>

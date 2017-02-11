@@ -9,7 +9,7 @@
 </head>
 <body>
 <form>
-<table id="myTable">
+<table id="myTable" width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -24,47 +24,47 @@
   </tr>
   <tr>
     <td>Check dishwasher & put away all washed stuff</td>
-    <td><input type="text" id = "dishwasher"></td>
+    <td><textarea type="text" id = "dishwasher"></textarea></td>
   </tr>
   <tr>
     <td>Check the fridge & chuck remaining food away & wipe inside</td>
-    <td><input type="text" id = "fridge"></td>
+    <td><textarea type="text" id = "fridge"></textarea></td>
   </tr>
   <tr>
     <td>Check & wipe microwave/ oven/ cook top/ toaster (*Deep clean for extra)</td>
-    <td><input type="text" id = "microwave"></td>
+    <td><textarea type="text" id = "microwave"></textarea></td>
   </tr>
   <tr>
     <td>Wipe appliances (e.g., coffee machien, kettles)</td>
-    <td><input type="text" id = "appliances"></td>
+    <td><textarea type="text" id = "appliances"></textarea></td>
   </tr>
   <tr>
     <td>Wipe the bench top</td>
-    <td><input type="text" id = "wipe"></td>
+    <td><textarea type="text" id = "wipe"></textarea></td>
   </tr>
   <tr>
     <td>Check and replace hand wash liquid & dishwasher pacs</td>
-    <td><input type="text" id = "replace"></td>
+    <td><textarea type="text" id = "replace"></textarea></td>
   </tr>
   <tr>
     <td>Top up supply (e.g., mikl, tea, water, coffee, snack)</td>
-    <td><input type="text" id = "supply"></td>
+    <td><textarea type="text" id = "supply"></textarea></td>
   </tr>
   <tr>
     <td>Take away dirty tea towels & put clean tea towels</td>
-    <td><input type="text" id = "tea_towels"></td>
+    <td><textarea type="text" id = "tea_towels"></textarea></td>
   </tr>
   <tr>
     <td>Change the rubbish bin bags & paper towels</td>
-    <td><input type="text" id = "bin"></td>
+    <td><textarea type="text" id = "bin"></textarea></td>
   </tr>
   <tr>
     <td>Brush the sink & wipe the tap & dry with paper towels</td>
-    <td><input type="text" id = "sink"></td>
+    <td><textarea type="text" id = "sink"></textarea></td>
   </tr>
   <tr>
-    <td><input type="text" id="extra_iterm"></td>
-    <td><input type="text" id="extra_requirements"></td>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
   </tr>  
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -92,7 +92,6 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
 </div>
 <button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">save</button>
-<button type="button" onclick = "nextRoom()">next step</button>
 <script src="kitchen_requirement.js">
 </script>
 </form>

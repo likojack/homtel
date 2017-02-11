@@ -75,7 +75,7 @@ function discardImage() {
 }
 
 function upload() {
-	firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
+	var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
 		strip_protector: document.getElementById('strip_protector').value,
 		strip_fitted_sheet: document.getElementById('strip_fitted_sheet').value,
 		strip_flat_sheet: document.getElementById('strip_flat_sheet').value,
@@ -89,20 +89,36 @@ function upload() {
 		extra_iterm: document.getElementById('extra_iterm').value,
 		extra_requirements: document.getElementById('extra_requirements').value
 	});
-	if (img_reference.length > 0){
-		for(i = 0; i<img_reference.length;i++) {
-			var storageRef = firebase.storage().ref(propertyCode + "/" + ptRoom + "_" + ptNum + "/" + "image_" + i);
-			var task = storageRef.put(img_reference[i]);
+	info_task.then(function() {
+		if (img_reference.length > 0){
+			for(i = 0; i<img_reference.length;i++) {
+				var storageRef = firebase.storage().ref(propertyCode + "/" + ptRoom + "_" + ptNum + "/" + "image_" + i);
+				var task = storageRef.put(img_reference[i]);
+				if (i==img_reference.length-1) {
+					task.on('state_changed',function(){}, function(){}, function(){ //when complete
+						nextRoom();
+					});
+				}
+			}
+
 		}
-	}
+		else{
+			nextRoom();
+		}
+		
+	});
+
+	
+	
 }
 
 
 function nextRoom() {
-	console.log (ptNum);
 	if (ptNum < numBed) { //record the current bedroom requirement
 		location.href = 'bedroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1) +"&"+washing+"&"+ironing;
 	} else {//next one is bathroom
 		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ "bathroom" + "&" + 1 +"&"+washing+"&"+ironing;
 	}	
+	
+
 }

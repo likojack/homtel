@@ -8,7 +8,7 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 <body>
 <form>
-<table id="myTable">
+<table id="myTable" width="100%">
   <style>
     td,th {
       border: 1px solid #dddddd;
@@ -23,15 +23,15 @@
   </tr>
   <tr>
     <td>Extra Area Cleaning</td>
-    <td><input type="text" id="extra_area"></td>
+    <td><textarea type="text" id="extra_area"></textarea></td>
   </tr>
   <tr>
     <td>Check utility cabinet usage, report if need more supply</td>
-    <td><input type="text" id="check_utility"></td>
+    <td><textarea type="text" id="check_utility"></textarea></td>
   </tr>
   <tr>
     <td>Take photos & report</td>
-    <td><input type="text" id="photo_report"></td>
+    <td><textarea type="text" id="photo_report"></textarea></td>
   </tr>
 </table>
 Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
@@ -57,8 +57,8 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
     <img id="imgPopupThree" style="width:400px;height:600px;">
   </div>
 </div>
+<button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
 <button type="button" onclick = "upload()">Submit</button>
-<button type="button" onclick = "nextRoom()">Finish</button>
 <script src="final.js">
 </script>
 </form>

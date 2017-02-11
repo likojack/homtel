@@ -67,15 +67,27 @@ function discardImage() {
 }
 
 function upload() {
-  firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'ironing').set({
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'ironing').set({
     ironing_requirement: document.getElementById('ironing_requirement').value
   });
-  if (img_reference.length > 0){
-    for(i = 0; i<img_reference.length;i++) {
-      var storageRef = firebase.storage().ref(propertyCode + "/ironing/" + "image_" + i);
-      var task = storageRef.put(img_reference[i]);
-    }
-  }
+  info_task.then(function() {
+        if (img_reference.length > 0){
+            for(i = 0; i<img_reference.length;i++) {
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "ironing" + "/" + "image_" + i);
+                var task = storageRef.put(img_reference[i]);
+                if (i==img_reference.length-1) {
+                    task.on('state_changed',function(){}, function(){}, function(){ //when complete
+                        nextRoom();
+                    });
+                }
+            }
+
+        }
+        else{
+            nextRoom();
+        }
+        
+    });
 }
 
 function nextRoom() {
