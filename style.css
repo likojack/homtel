@@ -1,0 +1,20 @@
+img {
+	max-width: 100px;
+	max-height: 100px;
+}
+#popupOne {
+	max-width: 500px;
+	min-width: 300px;
+	max-height: 500px;
+	min-height: 300px;
+}
+#popupTwo {
+	max-width: 400px;
+	max-height: 400px;
+}
+#popupThree {
+	max-width: 400px;
+	min-width: 200px;
+	max-height: 400px;
+	min-height: 200px;
+}

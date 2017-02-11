@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="style.css">
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
@@ -112,24 +113,24 @@
 Image:  
 <div id="divOne" data-role="main" class="ui-content">
   <a href="#popupOne" data-rel="popup" data-position-to="window">
-  <img height = "160" width = "160" id="imgOne">
+  <img id="imgOne">
   <div data-role="popup" id="popupOne">
     <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-    <img id="imgPopupOne" style="width:400px;height:600px;">
+    <img id="imgPopupOne">
   </div>
 
   <a href="#popupTwo" data-rel="popup" data-position-to="window">
-  <img height = "160" width = "160" id="imgTwo">
+  <img id="imgTwo">
   <div data-role="popup" id="popupTwo">
     <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-    <img id="imgPopupTwo" style="width:400px;height:600px;">
+    <img id="imgPopupTwo">
   </div>
 
   <a href="#popupThree" data-rel="popup" data-position-to="window">
-  <img height = "160" width = "160" id="imgThree">
+  <img id="imgThree">
   <div data-role="popup" id="popupThree">
     <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-    <img id="imgPopupThree" style="width:400px;height:600px;">
+    <img id="imgPopupThree">
   </div>
 </div>
 <button type="button" formmethod="post" onclick='back()'>Back</button>
