@@ -78,13 +78,19 @@ if (query[1]=="search"){//coming from search page
 
 
 function finish() {
-	for (i = 1; i < query.length; i++) {
-	    if (parseInt(query[i].slice(-1)) == 0){
-	    	alert("You have unfinished rooms!");
-	    	return 0;
-	    } 
-	};
-	return document.getElementById("done").innerHTML = "Done!";
+	if (query[1]=="search"){//coming from search page, definitely unfinshed
+		alert("You have unfinished rooms!");
+		return 0;
+	} else {//just done a room
+		for (i = 1; i < query.length; i++) {
+		    if (parseInt(query[i].slice(-1)) == 0){
+		    	alert("You have unfinished rooms!");
+		    	return 0;
+		    } 
+		    console.log(parseInt(query[i].slice(-1)));
+		};
+		return document.getElementById("done").innerHTML = "Done!";
+	} 
 }
 
 
