@@ -20,7 +20,7 @@ var config = {
   		button.innerHTML = childSnapshot.val();
   		button.onclick = (function(childPropertyCode) {
   			//go to the corresponding property info page
-  			location.href = "edit_property_info.html?" + "&" + childPropertyCode;
+  			location.href = "edit_property_info.html?" + childPropertyCode;
   		}).bind(null, childSnapshot.val());
   		document.body.appendChild(button);
   	});
