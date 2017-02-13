@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="jquery-1.11.3.min.js"></script>
+<script src="jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<form id="myForm">
+  <style>
+  td,th {
+    border: 1px solid #dddddd;
+  }
+  tr {
+    border: 1px solid #dddddd;
+  }
+  </style>
+<table id='myTable' width="100%">
+  <tr>
+    <th>Content</th>
+    <th>Detail</th>
+    <th>Requirement</th>
+    <th> Check Box </th>
+  </tr>
+  <tr>
+    <td rowspan="5">Strip</td>
+    <td>Protector</td>
+    <td><textarea id="strip_protector"></textarea></td>
+    <td><input type="checkbox" id="strip_protector_check"></td>
+  </tr>
+  <tr>
+    <td>Fitted sheet</td>
+    <td><textarea id="strip_fitted_sheet"></textarea></td>
+    <td><input type="checkbox" id="strip_fitted_sheet_check"></td>
+  </tr>
+  <tr>
+    <td>Flat sheet</td>
+    <td><textarea id="strip_flat_sheet"></textarea></td>
+    <td><input type="checkbox" id="strip_flat_sheet_check"></td>
+  </tr>
+  <tr>
+    <td>Quilt cover</td>
+    <td><textarea id="strip_quilt_cover"></textarea></td>
+    <td><input type="checkbox" id="strip_quilt_cover_check"></td>
+  </tr>
+  <tr>
+    <td>Pillowcases</td>
+    <td><textarea id="strip_pillowcases"></textarea></td>
+    <td><input type="checkbox" id="strip_pillowcases_check"></td>
+  </tr>
+  <tr>
+    <td rowspan="5"> Make</td>
+    <td>Pillowcases</td>
+    <td><textarea id="make_pillowcases"></textarea></td>
+    <td><input type="checkbox" id="make_pillowcases_check"></td>
+  </tr>
+  <tr>
+    <td>Fitted sheet</td>
+    <td><textarea id="make_fitted_sheet"></textarea></td>
+    <td><input type="checkbox" id="make_fitted_sheet_check"></td>
+  </tr>
+  <tr>
+    <td>Flat sheet</td>
+    <td><textarea id="make_flat_sheet"></textarea></td>
+    <td><input type="checkbox" id="make_flat_sheet_check"></td>
+  </tr>
+  <tr>
+    <td>Quilt cover</td>
+    <td><textarea id="make_quilt_cover"></textarea></td>
+    <td><input type="checkbox" id="make_quilt_cover_check"></td>
+  </tr>
+  <tr>
+    <td>Other beddings (cushion, decoration)</td>
+    <td><textarea id="make_other_beddings"></textarea></td>
+    <td><input type="checkbox" id="make_other_beddings_check"></td>
+  </tr>
+  <tr>
+    <td colspan="2"><textarea id="extra_iterm"></textarea></td>
+    <td><textarea id="extra_requirements"></textarea></td>
+    <td><input type="checkbox" id="extra_requirements_check"></td>
+  </tr>  
+</table>
+Image:
+<br>
+<div id="divOne" data-role="main" class="ui-content">
+  <a href="#popupOne" data-rel="popup" data-position-to="window">
+  <img id="imgOne">
+  <div data-role="popup" id="popupOne">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupOne">
+  </div>
+
+  <a href="#popupTwo" data-rel="popup" data-position-to="window">
+  <img id="imgTwo">
+  <div data-role="popup" id="popupTwo">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupTwo">
+  </div>
+
+  <a href="#popupThree" data-rel="popup" data-position-to="window">
+  <img id="imgThree">
+  <div data-role="popup" id="popupThree">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupThree">
+  </div>
+</div>
+<button type="button" formmethod="post" onclick='back()'>Back</button>
+<script src='read_job_sheet.js'>
+</script>
+</form>
+</body>
+</html>
+

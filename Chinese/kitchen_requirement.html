@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<form>
+<table id="myTable" width="100%">
+  <style>
+    td,th {
+      border: 1px solid #dddddd;
+    }
+    tr {
+      border: 1px solid #dddddd;
+    }
+  </style>
+  <tr>
+    <th>content</th>
+    <th>requirement</th>
+  </tr>
+  <tr>
+    <td>Check dishwasher & put away all washed stuff</td>
+    <td><textarea type="text" id = "dishwasher"></textarea></td>
+  </tr>
+  <tr>
+    <td>Check the fridge & chuck remaining food away & wipe inside</td>
+    <td><textarea type="text" id = "fridge"></textarea></td>
+  </tr>
+  <tr>
+    <td>Check & wipe microwave/ oven/ cook top/ toaster (*Deep clean for extra)</td>
+    <td><textarea type="text" id = "microwave"></textarea></td>
+  </tr>
+  <tr>
+    <td>Wipe appliances (e.g., coffee machien, kettles)</td>
+    <td><textarea type="text" id = "appliances"></textarea></td>
+  </tr>
+  <tr>
+    <td>Wipe the bench top</td>
+    <td><textarea type="text" id = "wipe"></textarea></td>
+  </tr>
+  <tr>
+    <td>Check and replace hand wash liquid & dishwasher pacs</td>
+    <td><textarea type="text" id = "replace"></textarea></td>
+  </tr>
+  <tr>
+    <td>Top up supply (e.g., mikl, tea, water, coffee, snack)</td>
+    <td><textarea type="text" id = "supply"></textarea></td>
+  </tr>
+  <tr>
+    <td>Take away dirty tea towels & put clean tea towels</td>
+    <td><textarea type="text" id = "tea_towels"></textarea></td>
+  </tr>
+  <tr>
+    <td>Change the rubbish bin bags & paper towels</td>
+    <td><textarea type="text" id = "bin"></textarea></td>
+  </tr>
+  <tr>
+    <td>Brush the sink & wipe the tap & dry with paper towels</td>
+    <td><textarea type="text" id = "sink"></textarea></td>
+  </tr>
+  <tr>
+    <td><textarea type="text" id="extra_iterm"></textarea></td>
+    <td><textarea type="text" id="extra_requirements"></textarea></td>
+  </tr>  
+</table>
+Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera">  
+<div id="divOne" data-role="main" class="ui-content">
+  <a href="#popupOne" data-rel="popup" data-position-to="window">
+  <img id="imgOne">
+  <div data-role="popup" id="popupOne">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupOne">
+  </div>
+
+  <a href="#popupTwo" data-rel="popup" data-position-to="window">
+  <img id="imgTwo">
+  <div data-role="popup" id="popupTwo">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupTwo">
+  </div>
+
+  <a href="#popupThree" data-rel="popup" data-position-to="window">
+  <img id="imgThree">
+  <div data-role="popup" id="popupThree">
+    <a href="#divOne" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+    <img id="imgPopupThree">
+  </div>
+</div>
+<button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
+<button type="button" onclick = "upload()">save</button>
+<script src="kitchen_requirement.js">
+</script>
+</form>
+</body>
+</html>

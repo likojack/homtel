@@ -1,0 +1,107 @@
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<form>
+<div id="customerInfo"> 
+	Customer Info <br><p></p>
+
+	First name: <input type="text" id='fName'>
+	Last name: <input type="text" id='lName'><br>
+	Customer code: (first letter of first name + full last time + order, <b>all capital letters</b>)<input type="text" id="customerCode"><br>
+	Mobile: <input type="text" id="mobile"><br>
+	Contact Number 2: <input type="text" id = "contactNumber2"><br>
+	Email: <input type="text" id="email"><br>
+	Billing Address: <br>
+	Street: <input type="text" id="billStreet"><br>
+	City: <input type="text" id="billCity"><br>
+	State: <input type="text" id="billState"><br>
+	Postcode: <input type="text" id="billPostcode"><br>
+	Country: <input type="text" id="billCountry"><br>
+</div>
+<p></p>
+
+<div id="propertyInfo"> 
+	Property Info <br><p></p>
+	
+	Property Type: 
+	<input type="radio" id="unit" name="propertyType" value="Unit"> Unit
+	<input type="radio" id="apartment" name="propertyType" value="Apartment"> Apartment
+	<input type="radio" id="townhouse" name="propertyType" value="Townhouse"> Townhouse
+	<input type="radio" id="house" name="propertyType" value="House"> House
+	<br>
+
+	Property Address: <br>
+	Street: <input type="text" id="propertyStreet"><br>
+	City: <input type="text" id="propertyCity"><br>
+	State: <input type="text" id="propertyState"><br>
+	Postcode: <input type="text" id="propertyPostcode"><br>
+	Country: <input type="text" id="propertyCountry"><br>
+	Property Code: (customer code + postcode + property type code + order)<input type="text" id='propertyCode'><br>
+	Number of Bedroom: <input type="text" id="numBed"><br>
+	Number of Bathroom: <input type="text" id="numBath"><br>
+	<!-- Number of Living Area: <input type="text" id="numLiving">
+	<br>
+	Does Kitchen require cleaning?: 
+	<input type="radio" name = "kitchen" id = "tKitchen" value="y">YES
+	<input type="radio" name = "kitchen" id = "fKitchen" value="n">NO
+	<br>
+	Does Laundry require cleaning?: 
+	<input type="radio" name = "laundry" id = "tLaundry" value="y">YES
+	<input type="radio" name = "laundry" id = "fLaundry" value="n">NO
+	<br> -->
+	Parking Provided: 
+	<input type="radio" id="parkingYes" name="parking" value="parkingYes"> Yes
+	<input type="radio" id="parkingNo" name="parking" value="parkingNo"> No
+	<br>
+	Front Door lock type:
+	<input type="radio" id="frontDoorKey" name="frontDoorLock" value="doorKeyHole"> Key Hole
+	<input type="radio" id="frontDoorPK" name="frontDoorLock" value="doorPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
+	<input type="radio" id="frontDoorPasscode" name="frontDoorLock" value="doorPassCode"> Passcode
+
+	<br>
+	Front door access detail:
+	<input type="text" id="frontDoorAccess">
+	<br>
+	Utility Cabinet Lock Type:
+	<input type="radio" id="utilityKey" name="utilityLock" value="utilityKeyHole"> Key Hole
+	<input type="radio" id="utilityPK" name="utilityLock" value="utilityPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
+	<input type="radio" id="utilityPasscode" name="utilityLock" value="utilityPassCode"> Passcode
+	<br>
+	Utility Cabinet Access Detail:
+	<input type="text" id="utilityAccess">
+	<br>
+</div>
+
+<p></p>
+
+<div id="serviceType"> 
+	Service Type:<br>
+	<p></p>
+	Cleaning: 
+	<input type="radio" id="cleaningYes" name="cleaning" value="cleaningYes"> Yes
+	<input type="radio" id="cleaningNo" name="cleaning" value="cleaningNo"> No
+	<br>
+	Washing:
+	<input type="radio" id="washingYes" name="washing" value="washingYes"> Yes
+	<input type="radio" id="washingNo" name="washing" value="washingNo"> No
+	<br>
+	Ironing:
+	<input type="radio" id="ironingYes" name="ironing" value="ironingYes"> Yes
+	<input type="radio" id="ironingNo" name="ironing" value="ironingNo"> No
+	<br>
+	Service Code: 
+	<button type="button" onclick="generateServiceCode()">Get Service Code</button>
+	<lable id="service_code"></lable><br>
+	<br>
+</div>
+
+<p></p>
+<script src="job_sheet_generator.js">
+</script>
+<button type="button" onclick="writeJobSheetInfo()">Save</button>
+<button type="button" onclick="nextRoom()">Next Step</button>
+</form>

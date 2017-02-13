@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+	<body>
+		<form>
+			<button type="button" onclick="directCustomer()">edit customer info</button>
+			<button type="button" onclick="directProperty()">edit property</button>
+			<button type="button" onclick="directJobSheet()">edit job sheet</button>
+			<script type="text/javascript">
+				var customerCode = window.location.search.substring(1);
+
+				function directCustomer() {
+					location.href = "edit_customer_info.html?" + customerCode;
+				}
+				function directProperty() {
+					location.href = "edit_property_list.html?" + customerCode;
+				}
+				function directJobSheet() {
+					location.href = "edit_job_sheet_list.html?" + customerCode;
+				}
+			</script>
+		</form>
+	</body>
+
+
+</html>
