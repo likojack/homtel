@@ -10,23 +10,23 @@
 <body>
 <form>
 <div id="propertyInfo"> 
-	Property Info <br><p></p>
+	房产信息 <br><p></p>
 	
-	Property Type: 
-	<input type="radio" id="unit" name="propertyType" value="Unit"> Unit
-	<input type="radio" id="apartment" name="propertyType" value="Apartment"> Apartment
-	<input type="radio" id="townhouse" name="propertyType" value="Townhouse"> Townhouse
-	<input type="radio" id="house" name="propertyType" value="House"> House
+	房产类型: 
+	<input type="radio" id="unit" name="propertyType" value="Unit"> 套间
+	<input type="radio" id="apartment" name="propertyType" value="Apartment"> 公寓
+	<input type="radio" id="townhouse" name="propertyType" value="Townhouse"> 联排别墅
+	<input type="radio" id="house" name="propertyType" value="House"> 别墅
 	<br>
 
-	Property Address: <br>
-	Street: <input type="text" id="propertyStreet"><br>
-	City: <input type="text" id="propertyCity"><br>
-	State: <input type="text" id="propertyState"><br>
-	Postcode: <input type="text" id="propertyPostcode"><br>
-	Country: <input type="text" id="propertyCountry"><br>
-	Number of Bedroom: <input type="text" id="numBed"><br>
-	Number of Bathroom: <input type="text" id="numBath"><br>
+	房产地址: <br>
+	街道: <input type="text" id="propertyStreet"><br>
+	城市: <input type="text" id="propertyCity"><br>
+	省份: <input type="text" id="propertyState"><br>
+	邮编: <input type="text" id="propertyPostcode"><br>
+	国家: <input type="text" id="propertyCountry"><br>
+	卧室数量: <input type="text" id="numBed"><br>
+	卫生间数量: <input type="text" id="numBath"><br>
 	<!-- Number of Living Area: <input type="text" id="numLiving">
 	<br>
 	Does Kitchen require cleaning?: 
@@ -37,25 +37,25 @@
 	<input type="radio" name = "laundry" id = "tLaundry" value="y">YES
 	<input type="radio" name = "laundry" id = "fLaundry" value="n">NO
 	<br> -->
-	Parking Provided: 
-	<input type="radio" id="parkingYes" name="parking" value="parkingYes"> Yes
-	<input type="radio" id="parkingNo" name="parking" value="parkingNo"> No
+	是否提供停车位: 
+	<input type="radio" id="parkingYes" name="parking" value="parkingYes"> 是
+	<input type="radio" id="parkingNo" name="parking" value="parkingNo"> 否
 	<br>
-	Front Door lock type:
-	<input type="radio" id="frontDoorKey" name="frontDoorLock" value="doorKeyHole"> Key Hole
-	<input type="radio" id="frontDoorPK" name="frontDoorLock" value="doorPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
-	<input type="radio" id="frontDoorPasscode" name="frontDoorLock" value="doorPassCode"> Passcode
+	门锁类型:
+	<input type="radio" id="frontDoorKey" name="frontDoorLock" value="doorKeyHole"> 钥匙
+	<input type="radio" id="frontDoorPK" name="frontDoorLock" value="doorPassCodeAndKeys"> 钥匙 (需要密码获取钥匙)
+	<input type="radio" id="frontDoorPasscode" name="frontDoorLock" value="doorPassCode"> 密码
 
 	<br>
-	Front door access detail:
+	获取门锁细节:
 	<input type="text" id="frontDoorAccess">
 	<br>
-	Utility Cabinet Lock Type:
-	<input type="radio" id="utilityKey" name="utilityLock" value="utilityKeyHole"> Key Hole
-	<input type="radio" id="utilityPK" name="utilityLock" value="utilityPassCodeAndKeys"> Key Hole (Require passcode to get the keys)
-	<input type="radio" id="utilityPasscode" name="utilityLock" value="utilityPassCode"> Passcode
+	储物柜锁类型:
+	<input type="radio" id="utilityKey" name="utilityLock" value="utilityKeyHole"> 钥匙
+	<input type="radio" id="utilityPK" name="utilityLock" value="utilityPassCodeAndKeys"> 钥匙 (需要密码获取钥匙)
+	<input type="radio" id="utilityPasscode" name="utilityLock" value="utilityPassCode"> 密码
 	<br>
-	Utility Cabinet Access Detail:
+	获取储物柜锁细节:
 	<input type="text" id="utilityAccess">
 	<br>
 </div>
@@ -63,22 +63,22 @@
 <p></p>
 
 <div id="serviceType"> 
-	Service Type:<br>
+	服务类型:<br>
 	<p></p>
-	Cleaning: 
-	<input type="radio" id="cleaningYes" name="cleaning" value="cleaningYes"> Yes
-	<input type="radio" id="cleaningNo" name="cleaning" value="cleaningNo"> No
+	清洁: 
+	<input type="radio" id="cleaningYes" name="cleaning" value="cleaningYes"> 是
+	<input type="radio" id="cleaningNo" name="cleaning" value="cleaningNo"> 否
 	<br>
-	Washing:
-	<input type="radio" id="washingYes" name="washing" value="washingYes"> Yes
-	<input type="radio" id="washingNo" name="washing" value="washingNo"> No
+	清洗:
+	<input type="radio" id="washingYes" name="washing" value="washingYes"> 是
+	<input type="radio" id="washingNo" name="washing" value="washingNo"> 否
 	<br>
-	Ironing:
-	<input type="radio" id="ironingYes" name="ironing" value="ironingYes"> Yes
-	<input type="radio" id="ironingNo" name="ironing" value="ironingNo"> No
+	熨烫:
+	<input type="radio" id="ironingYes" name="ironing" value="ironingYes"> 是
+	<input type="radio" id="ironingNo" name="ironing" value="ironingNo"> 否
 	<br>
-	Service Code: 
-	<button type="button" onclick="generateServiceCode()">Get Service Code</button>
+	服务代码: 
+	<button type="button" onclick="generateServiceCode()">获取服务代码</button>
 	<lable id="service_code"></lable><br>
 	<br>
 </div>
@@ -86,8 +86,8 @@
 <p></p>
 <script src="existing_customer_new_property_info.js">
 </script>
-<button type="button" onclick="writeJobSheetInfo()">Save</button>
-<button type="button" onclick="nextRoom()">Next Step</button>
+<button type="button" onclick="writeJobSheetInfo()">保存</button>
+<button type="button" onclick="nextRoom()">下一步</button>
 </form>
 </body>
 </html>
