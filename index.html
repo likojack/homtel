@@ -9,20 +9,20 @@
 </head>
 <body>
 <form>
-<label><b>用户名</b></label>
-<input type="text" placeholder="输入用户名" name="uname" required>
+<label><b>Username</b></label>
+<input type="text" placeholder="Enter Username" name="uname" required>
 <br>
-<label><b>密码</b></label>
-<input type="password" placeholder="输入密码" name="psw" required>
+<label><b>Password</b></label>
+<input type="password" placeholder="Enter Password" name="psw" required>
 <br>
-<button type="button" onclick="Redirect()">登陆</button>
-<button type="button" onclick="redirectEnglish()">change language</button>
+<button type="button" onclick="Redirect()">Login</button>
+<button type="button" onclick="redirectChinese()">切换语言</button>
 <script type="text/javascript">
 function Redirect() {
 	window.location="main.html";
 }
-function redirectEnglish() {
-	window.location="../index.html"
+function redirectChinese () {
+	window.location="Chinese/login.html";
 }
 </script>
 </form>
