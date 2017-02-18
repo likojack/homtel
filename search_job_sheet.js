@@ -8,6 +8,11 @@ var config = {
   firebase.initializeApp(config);
 
 function search() {
-	const propertyCode = document.getElementById("propertyCode");
-	location.href = "property_home.html?" + propertyCode.value + "&"+"search";
+	if(document.getElementById("propertyCode").value == ""){
+		alert("Please enter a property code!");
+	} else {
+		const propertyCode = document.getElementById("propertyCode");
+		location.href = "property_home.html?" + propertyCode.value + "&"+"search";
+	}
+	
 }
