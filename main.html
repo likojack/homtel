@@ -8,22 +8,22 @@
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 </head>
 <body>
-<form>
-<button onclick="redirectNew()">New Customer</button>
-<button onclick="redirectExisting()">Existing Customer</button>
-<button onclick="redirectJobSheet()">Open Jobsheet</button>
+	<form>
+		<button type="button" onclick="redirectNew()">New Customer</button>
+		<button type="button" onclick="redirectExisting()">Existing Customer</button>
+		<button type="button" onclick="redirectJobSheet()">Open Jobsheet</button>
 
-<script type="text/javascript">
-function redirectNew() {
-	window.location="job_sheet_generator.html";
-}
-function redirectJobSheet() {
-	window.location="search_job_sheet.html";
-}
-function redirectExisting() {
-	window.location="existing_customer.html";
-}
-</script>
+		<script type="text/javascript">
+		function redirectNew() {
+			window.location.href = "job_sheet_generator.html";
+		}
+		function redirectJobSheet() {
+			window.location.href = "search_job_sheet.html";
+		}
+		function redirectExisting() {
+			window.location.href = "existing_customer.html";
+		}
+		</script>
 </form>
 </body>
 </html>

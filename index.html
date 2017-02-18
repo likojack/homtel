@@ -10,16 +10,44 @@
 <body>
 <form>
 <label><b>Username</b></label>
-<input type="text" placeholder="Enter Username" name="uname" required>
+<input type="text" placeholder="Enter Username" id="userName" required>
 <br>
 <label><b>Password</b></label>
-<input type="password" placeholder="Enter Password" name="psw" required>
+<input type="password" placeholder="Enter Password" id="password" required>
 <br>
 <button type="button" onclick="Redirect()">Login</button>
 <button type="button" onclick="redirectChinese()">切换语言</button>
 <script type="text/javascript">
+var config = {
+    apiKey: "AIzaSyAoh8pzoi-rZ8X0OVHi3JT1_YmH6fZCkgI",
+    authDomain: "homtel-63eec.firebaseapp.com",
+    databaseURL: "https://homtel-63eec.firebaseio.com",
+    storageBucket: "homtel-63eec.appspot.com",
+    messagingSenderId: "389458058945"
+  };
+  firebase.initializeApp(config);
+var email = document.getElementById("userName").value;
+var password = document.getElementById("password").value;
 function Redirect() {
-	window.location="main.html";
+	var task = firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error) {
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			console.log(errorCode);
+			if (errorCode === "auth/wrong-password") {
+				alert("wrong password");
+			}
+	});
+	task.then(function() {
+		firebase.auth().onAuthStateChanged(function(user) {
+  			if (user) {
+				console.log("User is signed in.");
+		 	} else {
+		    	console.log("No user is signed in.");
+		  	}
+});
+	});
+
+	// window.location="main.html";
 }
 function redirectChinese () {
 	window.location="Chinese/login.html";

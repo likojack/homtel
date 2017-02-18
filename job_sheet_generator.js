@@ -10,7 +10,7 @@ var config = {
 
 function writeCustomerInfo() { //write customer info to database
 	
-	firebase.database().ref('customers/' + document.getElementById("customerCode").value).set({
+	var info_task = firebase.database().ref('customers/' + document.getElementById("customerCode").value).set({
 		first_name: document.getElementById("fName").value,
 		last_name: document.getElementById("lName").value,
 		mobile: document.getElementById("mobile").value,
@@ -23,6 +23,7 @@ function writeCustomerInfo() { //write customer info to database
 		bill_country: document.getElementById("billCountry").value,
 		properties: 'null'
 	});
+	return info_task;
 }
 
 
@@ -138,7 +139,7 @@ function writePropertyInfo() { //write property info to database
 
 	generateServiceCode();
 
-	firebase.database().ref('properties/' + document.getElementById("propertyCode").value).set({
+	info_task = firebase.database().ref('properties/' + document.getElementById("propertyCode").value).set({
 		property_type: propertyType,
 		property_street: document.getElementById("propertyStreet").value,
 		property_city: document.getElementById("propertyCity").value,
@@ -158,6 +159,7 @@ function writePropertyInfo() { //write property info to database
 		ironing: ironing,
 		service_code : document.getElementById("service_code").innerText
 	});
+	return info_task;
 
 
 	//generate corresponding HTML pages according to property setting,
@@ -170,20 +172,37 @@ function writePropertyInfo() { //write property info to database
 
 function writeJobSheetInfo() {
 
-	writeCustomerInfo();
-	writePropertyInfo();
-	firebase.database().ref('customers/' + document.getElementById("customerCode").value + '/properties').update({
-		1: document.getElementById("propertyCode").value
-	});
-	//console.log (generateServiceCode());
-	firebase.database().ref('job_sheets/' + document.getElementById("propertyCode").value).set({
-		bedroom_1:'null'
-	});
-	
+	//make sure customer code and property code are not empty. If empty, database will be ruined
+	if (document.getElementById("customerCode").value == "") {
+		alert("please input a valid customer code");
+	}
+	else if (document.getElementById("propertyCode").value == ""){
+		alert("please input a valid property code");
+	}
+	else {
+		var property_info = writePropertyInfo();
+		property_info.then(function () {
+			var customer_info = writeCustomerInfo();
+			customer_info.then(function() {
+				var property_list_info = firebase.database().ref('customers/' + document.getElementById("customerCode").value + '/properties').update({
+					1: document.getElementById("propertyCode").value
+				});
+				property_list_info.then(function() {
+					nextRoom();
+				});
+			});
+		});
+
+		
+		//console.log (generateServiceCode());
+		firebase.database().ref('job_sheets/' + document.getElementById("propertyCode").value).set({
+			bedroom_1:'null'
+		});
+	}
 }
 
 function nextRoom() {
-	console.log ("in");
+	//jump to next page after info uploaded
 	if (document.getElementById('cleaningYes').checked) {
 		if (document.getElementById('washingYes').checked) {
 			if (document.getElementById('ironingYes').checked) {
