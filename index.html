@@ -49,6 +49,7 @@ function Redirect() {
 		firebase.auth().onAuthStateChanged(function(user) {
 		  if (user) {
 		  	location.href="main.html";
+		  }
 		});
 	});
 	// window.location="main.html";
