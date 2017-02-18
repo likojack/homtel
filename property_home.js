@@ -14,6 +14,7 @@ document.getElementById("property_code").innerHTML = propertyCode;
 if (query[1]=="search"){//coming from search page
 	var roomDoneList = "";
 	var dbRefJobSheet = firebase.database().ref().child('job_sheets').child(propertyCode);
+	console.log(propertyCode);
 	dbRefJobSheet.on('value', function (snapshot){
 		var property = snapshot.val();
 		var listRoom = Object.keys(property);
@@ -36,7 +37,26 @@ if (query[1]=="search"){//coming from search page
 				var line_break = document.createElement("br");
 				document.body.appendChild(line_break);
 		}
+
+		var p = document.createElement("p");
+		p.innerHTML = "";
+		document.body.appendChild(p);
+
+
+		var finish_button = document.createElement("button");
+		finish_button.innerHTML = "FINISH";
+		finish_button.onclick = (function () { 
+						console.log("haha");
+						finish();
+		});
+		document.body.appendChild(finish_button);
+			
+		var finish_lable = document.createElement("lable");
+		finish_lable.innerHTML = "";
+		finish_lable.id = "finish_lable";
+		document.body.appendChild(finish_lable);
 	});
+
 } else { //just done a room
 	var roomDoneList = ""; 
 	for (i = 1; i < query.length; i++) {
@@ -71,10 +91,22 @@ if (query[1]=="search"){//coming from search page
 			var line_break = document.createElement("br");
 			document.body.appendChild(line_break);
 		}
+		var finish_button = document.createElement("button");
+		finish_button.innerHTML = "FINISH";
+		finish_button.onclick = (function () { 
+						console.log("haha");
+						finish();
+		});
+		document.body.appendChild(finish_button);
+			
+		var finish_lable = document.createElement("lable");
+		finish_lable.innerHTML = "";
+		finish_lable.id = "finish_lable";
+		document.body.appendChild(finish_lable);
 	});
 }
 
-	
+
 
 
 function finish() {
@@ -89,7 +121,7 @@ function finish() {
 		    } 
 		    console.log(parseInt(query[i].slice(-1)));
 		};
-		return document.getElementById("done").innerHTML = "Done!";
+		document.getElementById("finish_lable").innerHTML = "Done!";
 	} 
 }
 
