@@ -101,7 +101,7 @@ function nextRoom() {
     if (ironing == 'I'){ //require ironing
       window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"ironing"+"&"+washing+"&"+ironing; 
     } else if (ironing =='!'){ // no ironing required
-      window.location.href = 'final.html?'+propertyCode+"&"+"final"; 
+      window.location.href = 'final_requirement.html?'+propertyCode+"&"+"final"; 
     }
   }
 }
