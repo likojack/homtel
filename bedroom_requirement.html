@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" http-equiv="Content-Type" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+img { 
+    width:100%; 
+}
+</style>
 </head>
 <body>
+  <h1 style="color:#F39233;font-family: Helvetica;"><img src="logo_t.png" alt="Homtel Icon"/> <b>Sunny Homtel Service</b></h1>
 <form id="myForm">
 	<style>
 	td,th {
@@ -18,6 +24,7 @@
 		border: 1px solid #dddddd;
 	}
 	</style>
+<h1 id = "caption" align="center"></h1>
 <table id='myTable' width="100%">
   <tr>
     <th>Content</th>
@@ -46,9 +53,13 @@
     <td><textarea type="text" id="strip_pillowcases"></textarea></td>
   </tr>
   <tr>
-    <td rowspan="5"> Make</td>
+    <td rowspan="6"> Make</td>
     <td>Pillowcases</td>
     <td><textarea type="text" id="make_pillowcases"></textarea></td>
+  </tr>
+  <tr>
+    <td>Protector</td>
+    <td><textarea type="text" id="make_protector"></textarea></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
@@ -67,12 +78,14 @@
     <td><textarea type="text" id="make_other_beddings"></textarea></td>
   </tr>
   <tr>
-  	<td colspan="2"><textarea type="text" id="extra_iterm"></textarea></td>
-    <td><textarea type="text" id="extra_requirements"></textarea></td>
+  	<td colspan="2"><textarea type="text" id="extra_iterm" placeholder="Extra items"></textarea></td>
+    <td><textarea type="text" id="extra_requirements" placeholder="Extra Requirements"></textarea></td>
   </tr>  
 </table>
-Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera"> 
 <br>
+
+<h2>Capture Image: </h2>
+<input type="file" accept="image/*" onchange="displayFile(event)" id="capture" capture="camera"> 
 <div id="divOne" data-role="main" class="ui-content">
   <a href="#popupOne" data-rel="popup" data-position-to="window">
   <img id="imgOne">
@@ -95,7 +108,13 @@ Capture Image: <input type="file" accept="image/*" onchange="displayFile(event)"
     <img id="imgPopupThree">
   </div>
 </div>
-<button type="button" id="discard" formmethod="post" onclick="discardImage()">discard images</button>
+
+
+<div style="width: 20%">
+  <button type="button" id="discard" formmethod="post" onclick="discardImage()">Discard Images</button>
+</div>
+
+<br><br><br><br>
 <button type="button" formmethod="post" onclick='upload()'>Save</button>
 <script src='bedroom_requirement.js'>
 </script>

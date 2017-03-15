@@ -25,7 +25,7 @@ if (query[1]=="search"){//coming from search page
 			button.innerHTML = listRoom[i];
 			button.onclick = (function (roomType, propertyCode) { //jump to room job sheet page
 				//roomType.slice(0,-2) is to ignore the index of a room
-				if (roomType.slice(0,-2) == "bedroom" || roomType.slice(0,-2) == "bathroom") {
+				if (roomType.slice(0,-2) == "Bedroom" || roomType.slice(0,-2) == "Bathroom") {
 					location.href = roomType.slice(0,-2)+"_job_sheet.html?" + propertyCode + "&" + roomType + roomDoneList;
 				}
 				else{
@@ -73,7 +73,7 @@ if (query[1]=="search"){//coming from search page
 			button.innerHTML = listRoom[i];
 			button.onclick = (function (roomType, propertyCode) { //jump to room job sheet page
 				//roomType.slice(0,-2) is to ignore the index of a room
-				if (roomType.slice(0,-2) == "bedroom" || roomType.slice(0,-2) == "bathroom") {
+				if (roomType.slice(0,-2) == "Bedroom" || roomType.slice(0,-2) == "Bathroom") {
 					location.href = roomType.slice(0,-2)+"_job_sheet.html?" + propertyCode + "&" + roomType + roomDoneList;
 				}
 				else{

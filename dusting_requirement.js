@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Dusting"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Dusting"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -63,22 +63,32 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'dusting').set({
-    switches: document.getElementById("switches").value,
-    selves: document.getElementById("selves").value,
-    handles: document.getElementById("handles").value,
-    tables: document.getElementById("tables").value,
-    frames: document.getElementById("frames").value,
-    mirrors: document.getElementById("mirrors").value,
-    windows: document.getElementById("windows").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Dusting').set({
+    switches: autofill(document.getElementById("switches").value),
+    selves: autofill(document.getElementById("selves").value),
+    handles: autofill(document.getElementById("handles").value),
+    tables: autofill(document.getElementById("tables").value),
+    frames: autofill(document.getElementById("frames").value),
+    mirrors: autofill(document.getElementById("mirrors").value),
+    windows: autofill(document.getElementById("windows").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
       if (img_reference.length > 0){
           for(i = 0; i<img_reference.length;i++) {
-              var storageRef = firebase.storage().ref(propertyCode + "/" + "dusting" + "/" + "image_" + i);
+              var storageRef = firebase.storage().ref(propertyCode + "/" + "Dusting" + "/" + "image_" + i);
               var task = storageRef.put(img_reference[i]);
               if (i==img_reference.length-1) {
                   task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -97,5 +107,5 @@ function upload() {
 }
 
 function nextRoom() {
-	location.href = 'mop_requirement.html?'+propertyCode+"&"+'mopping'+"&"+washing+"&"+ironing;
+	location.href = 'mop_requirement.html?'+propertyCode+"&"+'Mopping'+"&"+washing+"&"+ironing;
 }

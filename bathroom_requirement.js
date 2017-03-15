@@ -7,7 +7,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
+//var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var numBed = query[1];
@@ -23,8 +23,9 @@ var img_reference = [];
 
 
 if (ptNum <= numBath) { //record the current bathroom requirement
-	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
+	document.getElementById('caption').innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
+
 if (window.File && window.FileReader && window.FileList && window.Blob) {
   // Great success! All the File APIs are supported.
 } else {
@@ -71,23 +72,34 @@ function discardImage() {
 	document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+	var autoString;
+	if (value == ""){
+		autoString = "Normal";
+	} else {
+		autoString = value;
+	}	
+	return autoString;
+}
+
 function upload() {
 	var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
-		dirty_towels: document.getElementById("dirty_towels").value,
-		dry: document.getElementById("dry").value,
-		wipe: document.getElementById("wipe").value,
-		drain: document.getElementById("drain").value,
-		rack: document.getElementById("rack").value,
-		basin: document.getElementById("basin").value,
-		surface: document.getElementById("surface").value,
-		bathtub: document.getElementById("bathtub").value,
-		replace: document.getElementById("replace").value,
-		bin: document.getElementById("bin").value,
-		toilet_paper: document.getElementById("toilet_paper").value,
-		clean_towels: document.getElementById("clean_towels").value,
-		clean_washers: document.getElementById("clean_washers").value,
-		clean_bathmat: document.getElementById("clean_bathmat").value,
-		brush_toilet: document.getElementById("brush_toilet").value,
+		dirty_towels: autofill(document.getElementById("dirty_towels").value),
+		dry: autofill(document.getElementById("dry").value),
+		wipe: autofill(document.getElementById("wipe").value),
+		drain: autofill(document.getElementById("drain").value),
+		rack: autofill(document.getElementById("rack").value),
+		basin: autofill(document.getElementById("basin").value),
+		surface: autofill(document.getElementById("surface").value),
+		bathtub: autofill(document.getElementById("bathtub").value),
+		replace: autofill(document.getElementById("replace").value),
+		bin: autofill(document.getElementById("bin").value),
+		toilet_paper: autofill(document.getElementById("toilet_paper").value),
+		clean_towels: autofill(document.getElementById("clean_towels").value),
+		clean_hand_towels: autofill(document.getElementById("clean_hand_towels").value),
+		clean_washers: autofill(document.getElementById("clean_washers").value),
+		clean_bathmat: autofill(document.getElementById("clean_bathmat").value),
+		brush_toilet: autofill(document.getElementById("brush_toilet").value),
 		extra_iterm: document.getElementById('extra_iterm').value,
 		extra_requirements: document.getElementById('extra_requirements').value
 
@@ -117,7 +129,7 @@ function nextRoom() {
 	if (ptNum < numBath) { //record the current bathroom requirement
 		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1) +"&"+washing+"&"+ironing;
 	} else {
-		location.href = 'kitchen_requirement.html?'+propertyCode+"&"+'kitchen'+"&"+washing+"&"+ironing;
+		location.href = 'kitchen_requirement.html?'+propertyCode+"&"+'Kitchen'+"&"+washing+"&"+ironing;
 	}
 	
 }

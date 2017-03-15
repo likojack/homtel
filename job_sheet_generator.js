@@ -40,7 +40,18 @@ function generateCustomerCode(){
 
 function writeCustomerInfo() { //write customer info to database
 	
-	var info_task = firebase.database().ref('customers/' + document.getElementById("customer_code").innerHTML).set({
+	if(document.getElementById("mobile").value == ""){
+		alert("please input the mobile!");
+	} else if(document.getElementById("email").value == ""){
+		alert("please input the email!");
+	} else if (document.getElementById("billStreet").value == "" ||
+		document.getElementById("billCity").value == "" ||
+		document.getElementById("billState").value == "" ||
+		document.getElementById("billPostcode").value == "" ||
+		document.getElementById("billCountry").value == ""){
+		alert("please input the billling address correctly!");
+	} else {
+		var info_task = firebase.database().ref('customers/' + document.getElementById("customer_code").innerHTML).set({
 		first_name: document.getElementById("fName").value,
 		last_name: document.getElementById("lName").value,
 		mobile: document.getElementById("mobile").value,
@@ -52,8 +63,10 @@ function writeCustomerInfo() { //write customer info to database
 		bill_postcode: document.getElementById("billPostcode").value,
 		bill_country: document.getElementById("billCountry").value,
 		properties: 'null'
-	});
-	return info_task;
+		});
+		return info_task;
+	}
+	
 }
 
 
@@ -114,8 +127,12 @@ function generatePropertyCode(){
 	} else if (document.getElementById('house').checked) {
 		propertyTypecode = document.getElementById('house').value.slice(0,1).toUpperCase();
 	}
-	if(document.getElementById("propertyPostcode").value == ""){
-		alert("please input the property's postcode!");
+	if(document.getElementById("propertyStreet").value == "" ||
+		document.getElementById("propertyCity").value == "" ||
+		document.getElementById("propertyState").value == "" ||
+		document.getElementById("propertyPostcode").value == ""||
+		document.getElementById("propertyCountry").value == ""){
+		alert("please input the property address correctly!");
 	} else if (propertyTypecode == null){
 		alert("please select a property type!");
 	} else {
@@ -202,6 +219,7 @@ function writePropertyInfo() { //write property info to database
 	}
 
 	generateServiceCode();
+	
 	info_task = firebase.database().ref('properties/' + document.getElementById("property_code").innerHTML).set({
 		property_type: propertyType,
 		property_street: document.getElementById("propertyStreet").value,
@@ -212,6 +230,7 @@ function writePropertyInfo() { //write property info to database
 		num_bedroom: document.getElementById("numBed").value,
 		num_bathroom: document.getElementById("numBath").value,
 		parking_provided: parking,
+		parking_access: document.getElementById("parkingAccess").value,
 		front_door_lock_type: frontDoorLockType,
 		front_door_access: document.getElementById("frontDoorAccess").value,
 		utility_lock_type: utilityLockType,
@@ -223,7 +242,6 @@ function writePropertyInfo() { //write property info to database
 		service_code : document.getElementById("service_code").innerText
 	});
 	return info_task;
-	
 }
 
 function nextRoom() {
@@ -232,28 +250,28 @@ function nextRoom() {
 	if (document.getElementById('cleaningYes').checked) {
 		if (document.getElementById('washingYes').checked) {
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"I";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"W"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"W"+"&"+"!";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"W"+"&"+"!";
 			}
 		} else if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"!"+"&"+"I";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"!"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'bedroom'+"&"+'1'+"&"+"!"+"&"+"!";
+				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"!"+"&"+"!";
 			}
 		}
 		
 	} else if (document.getElementById('cleaningNo').checked){
 		if (document.getElementById('washingYes').checked){
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"I";
+				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Washing'+"&"+'0'+"&"+"W"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'washing'+"&"+'0'+"&"+"W"+"&"+"!";
+				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Washing'+"&"+'0'+"&"+"W"+"&"+"!";
 			}
 		} else  if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked){
-				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'ironing'+"&"+'0'+"&"+"!"+"&"+"I";
+				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Ironing'+"&"+'0'+"&"+"!"+"&"+"I";
 			} else if (document.getElementById('ironingNo').checked) {
 				alert("Please choose a service!");
 			}
@@ -289,7 +307,7 @@ function writeJobSheetInfo() {
 		console.log(document.getElementById("property_code").innerHTML);
 		
 		firebase.database().ref('job_sheets/' + document.getElementById("property_code").innerHTML).set({
-			bedroom_1:'null'
+			Bedroom_1:'null'
 		});
 	}
 }

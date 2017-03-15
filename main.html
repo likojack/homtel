@@ -6,24 +6,50 @@
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+img { 
+    width:100%; 
+}
+</style>
 </head>
 <body>
-	<h1 align="center"><b>Sunny HomTel Service</b></h1> <br>
+	<h1 style="color:#F39233;font-family: Helvetica;font-size: 300%"><img src="logo_t.png" alt="Homtel Icon" style="width:186px;height:85px;"/> <b>Sunny Homtel Service</b></h1>
 	<form>
-		<button type="button" onclick="redirectNew()">New Customer</button>
-		<button type="button" onclick="redirectExisting()">Existing Customer</button>
-		<button type="button" onclick="redirectJobSheet()">Open Jobsheet</button>
+		<h1 style="font-family: Helvetica;"><b>Customers Information</b></h1>
+		
+		<button type="button" onclick="redirectNewCus()">New Customer - Create New Job Sheet</button>
+		<button type="button" onclick="redirectExistingCus()">Existing Customer - Edit/Update Job Sheet</button>
+
+		<h1 style="font-family: Helvetica;"><b>Staff Information</b></h1>
+		<button type="button" onclick="redirectNewStaff()"> New Staff - Create Profile</button>
+		<button type="button" onclick="redirectExistingStaff()"> Existing Staff - Edit/Update Profile</button>
+
+		<h1 style="font-family: Helvetica;"><b>Job Sheet Information</b></h1>
+		<button type="button" onclick="redirectJobSheetView()"> Preview Jobsheet</button>
+		<button type="button" onclick="redirectJobSheetService()"> New Service - Open Jobsheet</button>
 
 		<script type="text/javascript">
-		function redirectNew() {
+		function redirectNewCus() {
 			window.location.href = "job_sheet_generator.html";
 		}
-		function redirectJobSheet() {
-			window.location.href = "search_job_sheet.html";
-		}
-		function redirectExisting() {
+		function redirectExistingCus() {
 			window.location.href = "existing_customer.html";
 		}
+
+		function redirectNewStaff() {
+			window.location.href = "job_sheet_generator.html";
+		}
+		function redirectExistingStaff() {
+			window.location.href = "existing_customer.html";
+		}
+		
+		function redirectJobSheetView() {
+			window.location.href = "search_job_sheet.html";
+		}
+		function redirectJobSheetService() {
+			window.location.href = "search_job_sheet.html";
+		}
+		
 		</script>
 </form>
 </body>

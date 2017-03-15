@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Finishing"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Finishing"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 
@@ -63,16 +63,29 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'final').set({
-    extra_area: document.getElementById("extra_area").value,
-    check_utility: document.getElementById("check_utility").value,
-    photo_report: document.getElementById('photo_report').value
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Finishing').set({
+    extra_area: autofill(document.getElementById("extra_area").value),
+    check_utility: autofill(document.getElementById("check_utility").value),
+    photo_report: autofill(document.getElementById('photo_report').value),
+    keys: autofill(document.getElementById('keys').value),
+    extra_iterm: document.getElementById('extra_iterm').value,
+    extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
         if (img_reference.length > 0){
             for(i = 0; i<img_reference.length;i++) {
-                var storageRef = firebase.storage().ref(propertyCode + "/" + "final" + "/" + "image_" + i);
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "Finishing" + "/" + "image_" + i);
                 var task = storageRef.put(img_reference[i]);
                 if (i==img_reference.length-1) {
                     task.on('state_changed',function(){}, function(){}, function(){ //when complete

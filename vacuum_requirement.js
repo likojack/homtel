@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Vacuuming"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Vacuuming"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -63,20 +63,29 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
 
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'vacuuming').set({
-    carpet: document.getElementById("carpet").value,
-    corners: document.getElementById("corners").value,
-    vents: document.getElementById("vents").value,
-    fly_screens: document.getElementById("fly_screens").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Vacuuming').set({
+    carpet: autofill(document.getElementById("carpet").value),
+    corners: autofill(document.getElementById("corners").value),
+    vents: autofill(document.getElementById("vents").value),
+    fly_screens: autofill(document.getElementById("fly_screens").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
         if (img_reference.length > 0){
             for(i = 0; i<img_reference.length;i++) {
-                var storageRef = firebase.storage().ref(propertyCode + "/" + "vacuuming" + "/" + "image_" + i);
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "Vacuuming" + "/" + "image_" + i);
                 var task = storageRef.put(img_reference[i]);
                 if (i==img_reference.length-1) {
                     task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -94,5 +103,5 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'belcony_requirement.html?'+propertyCode+"&"+'belcony'+"&"+washing+"&"+ironing;
+	window.location.href = 'belcony_requirement.html?'+propertyCode+"&"+'Belcony'+"&"+washing+"&"+ironing;
 }

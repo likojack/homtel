@@ -15,14 +15,14 @@ img {
 <body>
 	<h1 style="color:#F39233;font-family: Helvetica;font-size: 300%"><img src="logo_t.png" alt="Homtel Icon" style="width:186px;height:85px;"/> <b>Sunny Homtel Service</b></h1>
 <form>
-<label><b>Username</b></label>
-<input type="text" placeholder="Enter Username" id="userName" required>
+<label><b>用户名</b></label>
+<input type="text" placeholder="输入用户名" id="userName" required>
 <br>
-<label><b>Password</b></label>
-<input type="password" placeholder="Enter Password" id="password" required>
+<label><b>密码</b></label>
+<input type="password" placeholder="输入密码" id="password" required>
 <br>
-<button type="button" onclick="Redirect()">Login</button>
-<button type="button" onclick="redirectChinese()">切换语言</button>
+<button type="button" onclick="Redirect()">登录</button>
+<button type="button" onclick="redirectEnglish()">Change Language</button>
 <script type="text/javascript">
 var config = {
     apiKey: "AIzaSyAoh8pzoi-rZ8X0OVHi3JT1_YmH6fZCkgI",
@@ -58,10 +58,10 @@ function Redirect() {
 		  }
 		});
 	});
-	// window.location="main.html";
+	//window.location="main.html";
 }
-function redirectChinese () {
-	window.location="Chinese/index.html";
+function redirectEnglish() {
+	window.location="../index.html"
 }
 </script>
 </form>

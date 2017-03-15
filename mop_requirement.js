@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Mopping"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Mopping"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -63,18 +63,28 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'mopping').set({
-    bathrooms: document.getElementById("bathrooms").value,
-    other: document.getElementById("other").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Mopping').set({
+    bathrooms: autofill(document.getElementById("bathrooms").value),
+    other: autofill(document.getElementById("other").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
       if (img_reference.length > 0){
           for(i = 0; i<img_reference.length;i++) {
-              var storageRef = firebase.storage().ref(propertyCode + "/" + "mopping" + "/" + "image_" + i);
+              var storageRef = firebase.storage().ref(propertyCode + "/" + "Mopping" + "/" + "image_" + i);
               var task = storageRef.put(img_reference[i]);
               if (i==img_reference.length-1) {
                   task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -92,5 +102,5 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'vacuum_requirement.html?'+propertyCode+"&"+'vacuuming'+"&"+washing+"&"+ironing;
+	window.location.href = 'vacuum_requirement.html?'+propertyCode+"&"+'Vacuuming'+"&"+washing+"&"+ironing;
 }

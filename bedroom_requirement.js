@@ -7,7 +7,7 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
+//var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var numBed = query[1];
@@ -22,7 +22,7 @@ var img_counter = 0;
 var img_reference = [];
 
 if (ptNum <= numBed) { //record the current bedroom requirement
-	myTable.innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
+	document.getElementById('caption').innerHTML = "<b>"+ptRoom+" "+ptNum+"</b>";
 }
 
 //check the browser supports the FILE API
@@ -74,18 +74,29 @@ function discardImage() {
 	document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+	var autoString;
+	if (value == ""){
+		autoString = "Normal";
+	} else {
+		autoString = value;
+	}	
+	return autoString;
+}
+
 function upload() {
 	var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ptRoom+'_'+ptNum).set({
-		strip_protector: document.getElementById('strip_protector').value,
-		strip_fitted_sheet: document.getElementById('strip_fitted_sheet').value,
-		strip_flat_sheet: document.getElementById('strip_flat_sheet').value,
-		strip_quilt_cover: document.getElementById('strip_quilt_cover').value,
-		strip_pillowcases: document.getElementById('strip_pillowcases').value,
-		make_pillowcases: document.getElementById('make_pillowcases').value,
-		make_fitted_sheet: document.getElementById('make_fitted_sheet').value,
-		make_flat_sheet: document.getElementById('make_flat_sheet').value,
-		make_quilt_cover: document.getElementById('make_quilt_cover').value,
-		make_other_beddings: document.getElementById('make_other_beddings').value,
+		strip_protector: autofill(document.getElementById('strip_protector').value),
+		strip_fitted_sheet: autofill(document.getElementById('strip_fitted_sheet').value),
+		strip_flat_sheet: autofill(document.getElementById('strip_flat_sheet').value),
+		strip_quilt_cover: autofill(document.getElementById('strip_quilt_cover').value),
+		strip_pillowcases: autofill(document.getElementById('strip_pillowcases').value),
+		make_pillowcases: autofill(document.getElementById('make_pillowcases').value),
+		make_protector: autofill(document.getElementById('make_protector').value),
+		make_fitted_sheet: autofill(document.getElementById('make_fitted_sheet').value),
+		make_flat_sheet: autofill(document.getElementById('make_flat_sheet').value),
+		make_quilt_cover: autofill(document.getElementById('make_quilt_cover').value),
+		make_other_beddings: autofill(document.getElementById('make_other_beddings').value),
 		extra_iterm: document.getElementById('extra_iterm').value,
 		extra_requirements: document.getElementById('extra_requirements').value
 	});
@@ -117,7 +128,7 @@ function nextRoom() {
 	if (ptNum < numBed) { //record the current bedroom requirement
 		location.href = 'bedroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ptRoom + "&" + (parseInt(ptNum) + 1) +"&"+washing+"&"+ironing;
 	} else {//next one is bathroom
-		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ "bathroom" + "&" + 1 +"&"+washing+"&"+ironing;
+		location.href = 'bathroom_requirement.html?'+propertyCode+"&"+numBed+"&"+numBath+"&"+ "Bathroom" + "&" + 1 +"&"+washing+"&"+ironing;
 	}	
 	
 

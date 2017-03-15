@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Kitchen"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Kitchen"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -64,17 +64,27 @@ function discardImage() {
     document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'kitchen').set({
-    dishwasher: document.getElementById("dishwasher").value,
-    fridge: document.getElementById("fridge").value,
-    microwave: document.getElementById("microwave").value,
-    appliances: document.getElementById("appliances").value,
-    replace: document.getElementById("replace").value,
-    supply: document.getElementById("supply").value,
-    tea_towels: document.getElementById("tea_towels").value,
-    bin: document.getElementById("bin").value,
-    sink: document.getElementById("sink").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Kitchen').set({
+    dishwasher: autofill(document.getElementById("dishwasher").value),
+    fridge: autofill(document.getElementById("fridge").value),
+    microwave: autofill(document.getElementById("microwave").value),
+    appliances: autofill(document.getElementById("appliances").value),
+    replace: autofill(document.getElementById("replace").value),
+    supply: autofill(document.getElementById("supply").value),
+    tea_towels: autofill(document.getElementById("tea_towels").value),
+    bin: autofill(document.getElementById("bin").value),
+    sink: autofill(document.getElementById("sink").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
 
@@ -82,7 +92,7 @@ function upload() {
   info_task.then(function() {
         if (img_reference.length > 0){
             for(i = 0; i<img_reference.length;i++) {
-                var storageRef = firebase.storage().ref(propertyCode + "/" + "kitchen" + "/" + "image_" + i);
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "Kitchen" + "/" + "image_" + i);
                 var task = storageRef.put(img_reference[i]);
                 if (i==img_reference.length-1) {
                     task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -100,5 +110,5 @@ function upload() {
 }
 
 function nextRoom() {
-	window.location.href = 'laundry_requirement.html?'+propertyCode+"&"+'laundry'+"&"+washing+"&"+ironing;
+	window.location.href = 'laundry_requirement.html?'+propertyCode+"&"+'Laundry'+"&"+washing+"&"+ironing;
 }

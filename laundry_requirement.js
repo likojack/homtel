@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Laundry"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Laundry"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -62,17 +62,27 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'laundry').set({
-    sink: document.getElementById("sink").value,
-    surface: document.getElementById("surface").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Laundry').set({
+    sink: autofill(document.getElementById("sink").value),
+    surface: autofill(document.getElementById("surface").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
         if (img_reference.length > 0){
             for(i = 0; i<img_reference.length;i++) {
-                var storageRef = firebase.storage().ref(propertyCode + "/" + "laundry" + "/" + "image_" + i);
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "Laundry" + "/" + "image_" + i);
                 var task = storageRef.put(img_reference[i]);
                 if (i==img_reference.length-1) {
                     task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -90,5 +100,5 @@ function upload() {
 }
 
 function nextRoom() {	
-	window.location.href = 'dusting_requirement.html?'+propertyCode+"&"+'dusting'+"&"+washing+"&"+ironing;
+	window.location.href = 'dusting_requirement.html?'+propertyCode+"&"+'Dusting'+"&"+washing+"&"+ironing;
 }

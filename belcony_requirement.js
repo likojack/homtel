@@ -7,8 +7,8 @@ var config = {
   };
   firebase.initializeApp(config);
 
-var myTable = document.getElementById('myTable').createCaption();
-myTable.innerHTML = "<b>"+"Belcony"+"</b>";
+//var myTable = document.getElementById('myTable').createCaption();
+document.getElementById('caption').innerHTML = "<b>"+"Belcony"+"</b>";
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var washing = query[2];//"!" means not required
@@ -65,19 +65,29 @@ function discardImage() {
   document.getElementById("imgThree").src = "";
 }
 
+function autofill(value){
+    var autoString;
+    if (value == ""){
+        autoString = "Normal";
+    } else {
+        autoString = value;
+    }   
+    return autoString;
+}
+
 function upload() {
-  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'belcony').set({
-    sweep: document.getElementById("sweep").value,
-    bbq: document.getElementById("bbq").value,
-    cobweb: document.getElementById("cobweb").value,
-    wipe: document.getElementById("wipe").value,
+  var info_task = firebase.database().ref('job_sheets/'+propertyCode+'/'+ 'Belcony').set({
+    sweep: autofill(document.getElementById("sweep").value),
+    bbq: autofill(document.getElementById("bbq").value),
+    cobweb: autofill(document.getElementById("cobweb").value),
+    wipe: autofill(document.getElementById("wipe").value),
     extra_iterm: document.getElementById('extra_iterm').value,
     extra_requirements: document.getElementById('extra_requirements').value
   });
   info_task.then(function() {
         if (img_reference.length > 0){
             for(i = 0; i<img_reference.length;i++) {
-                var storageRef = firebase.storage().ref(propertyCode + "/" + "belcony" + "/" + "image_" + i);
+                var storageRef = firebase.storage().ref(propertyCode + "/" + "Belcony" + "/" + "image_" + i);
                 var task = storageRef.put(img_reference[i]);
                 if (i==img_reference.length-1) {
                     task.on('state_changed',function(){}, function(){}, function(){ //when complete
@@ -96,12 +106,12 @@ function upload() {
 
 function nextRoom() {
   if (washing == 'W'){ //require washing
-    window.location.href = 'washing_requirement.html?'+propertyCode+"&"+"washing"+"&"+washing+"&"+ironing; 
+    window.location.href = 'washing_requirement.html?'+propertyCode+"&"+"Washing"+"&"+washing+"&"+ironing; 
   } else if (washing =='!'){ // no washing required
     if (ironing == 'I'){ //require ironing
-      window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"ironing"+"&"+washing+"&"+ironing; 
+      window.location.href = 'ironing_requirement.html?'+propertyCode+"&"+"Ironing"+"&"+washing+"&"+ironing; 
     } else if (ironing =='!'){ // no ironing required
-      window.location.href = 'final_requirement.html?'+propertyCode+"&"+"final"; 
+      window.location.href = 'final_requirement.html?'+propertyCode+"&"+"Final"; 
     }
   }
 }
