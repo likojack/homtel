@@ -250,28 +250,28 @@ function nextRoom() {
 	if (document.getElementById('cleaningYes').checked) {
 		if (document.getElementById('washingYes').checked) {
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"W"+"&"+"I";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'1'+"&"+"W"+"&"+"I"+"&"+"C";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"W"+"&"+"!";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'1'+"&"+"W"+"&"+"!"+"&"+"C";
 			}
 		} else if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"!"+"&"+"I";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'1'+"&"+"!"+"&"+"I"+"&"+"C";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'bedroom_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Bedroom'+"&"+'1'+"&"+"!"+"&"+"!";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'1'+"&"+"!"+"&"+"!"+"&"+"C";
 			}
 		}
 		
 	} else if (document.getElementById('cleaningNo').checked){
 		if (document.getElementById('washingYes').checked){
 			if (document.getElementById('ironingYes').checked) {
-				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Washing'+"&"+'0'+"&"+"W"+"&"+"I";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'0'+"&"+"W"+"&"+"I"+"&"+"!";
 			} else if (document.getElementById('ironingNo').checked) {
-				window.location.href = 'washing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Washing'+"&"+'0'+"&"+"W"+"&"+"!";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'0'+"&"+"W"+"&"+"!"+"&"+"!";
 			}
 		} else  if (document.getElementById('washingNo').checked) {
 			if (document.getElementById('ironingYes').checked){
-				window.location.href = 'ironing_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Ironing'+"&"+'0'+"&"+"!"+"&"+"I";
+				window.location.href = 'check_requirement.html'+'?'+document.getElementById("property_code").innerHTML+"&"+document.getElementById("numBed").value+"&"+document.getElementById("numBath").value+"&"+'Check'+"&"+'0'+"&"+"!"+"&"+"I"+"&"+"!";
 			} else if (document.getElementById('ironingNo').checked) {
 				alert("Please choose a service!");
 			}
@@ -307,7 +307,8 @@ function writeJobSheetInfo() {
 		console.log(document.getElementById("property_code").innerHTML);
 		
 		firebase.database().ref('job_sheets/' + document.getElementById("property_code").innerHTML).set({
-			Bedroom_1:'null'
+			//Bedroom_1:'null'
+			General_Check:'null'
 		});
 	}
 }
