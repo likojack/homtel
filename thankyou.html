@@ -32,12 +32,14 @@ img {
 
 
 		<script type="text/javascript">
+		var query = window.location.search.substring(1).split("&");
+		var propertyCode = query[0];
 		function back() {
 			window.location.href = "main.html";
 		}
 
 		function pdf() {
-			window.location.href = "jobsheet_pdf.html";
+			window.location.href = "jobsheet_pdf.html"+'?'+propertyCode;
 		}
 		
 		</script>

@@ -239,7 +239,7 @@ function writePropertyInfo() { //write property info to database
 		cleaning: cleaning,
 		washing: washing,
 		ironing: ironing,
-		service_code : document.getElementById("service_code").innerText
+		service_code : document.getElementById("service_code").value
 	});
 	return info_task;
 }

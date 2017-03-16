@@ -80,6 +80,7 @@ function upload() {
     fridge: autofill(document.getElementById("fridge").value),
     microwave: autofill(document.getElementById("microwave").value),
     appliances: autofill(document.getElementById("appliances").value),
+    wipe: autofill(document.getElementById("wipe").value),
     replace: autofill(document.getElementById("replace").value),
     supply: autofill(document.getElementById("supply").value),
     tea_towels: autofill(document.getElementById("tea_towels").value),
