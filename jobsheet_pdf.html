@@ -2,6 +2,8 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <script type = "text/javascript" src="jspdf.min.js"></script>
+  <script type = "text/javascript" src="html2canvas.js"></script>
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -13,153 +15,160 @@ img {
 lable {
 	font-size: 80%;
 }
+body {
+	font-size: 100%;
+}
+h1 {
+	margin-left: -30px;
+}
+h2 {
+	margin-left: -20px;
+}
+h3 {
+	margin-left: -10px;
+}
 </style>
 </head>
 <body>
-	<h1 style="margin-top: 1em; width:99%; color:#F39233;font-family: Helvetica;"><img src="logo_t.png" alt="Homtel Icon" style="width:93px;height:42px;"/> <b>Sunny Homtel Service</b></h1>
 
-<div id="customerInfo" style="margin: 0 auto; width:90%;" > 
-	<h1><b>Customer Info</b></h1>
-	<div style="float:left;width: 30%">
-		<b>First name: </b><lable id='first_name'></lable>
+<h1 style="margin: 0 auto; width:90%; margin-top: 1em; color:#F39233;font-family: Helvetica;"><img src="logo_t.png" alt="Homtel Icon" style="width:93px;height:42px;"/> <b>Sunny Homtel Service</b></h1><br>
+
+<h1 style="margin: 0 auto;width:90%;"><b>New Job Sheet Preview</b></h1>
+<br>
+<div style="margin: 0 auto;width:90%;">
+	<b>View Date: </b><lable id='date'></lable>
+</div>
+<div style="clear:both;"><br></div>
+
+<div id = "main" style="margin: 0 auto; width:90%;" > <!-- pdf print section -->
+	<div id="customerInfo" style="margin: 0 auto; width:90%;" > 
+		<h1><b>Customer Info</b></h1>
+		<div style="float:left;width: 30%">
+			<b>First name: </b><lable id='first_name'></lable>
+		</div>
+		<div style="float:left;width: 30%">
+			<b>Last name: </b><lable id='last_name'></lable>
+		</div>
+		<div style="clear:both;"></div>
+		<b>Customer code: </b><lable id="customer_code"></lable>
+		<br>
+		<div style="float:left;width: 30%">
+			<b>Mobile: </b><lable id="mobile"></lable>
+		</div>
+		<div style="float:left;width: 30%">
+			<b>Contact Number 2: </b><lable id = "contact_number_2"></lable>
+		</div>
+		<div style="clear:both;"></div>
+		<b>Email: </b><lable id="email"></lable>
+		<br>
+		<b>Billing Address: </b> 
+		<lable id="bill_street"></lable>,
+		<lable id="bill_city"></lable>,
+		<lable id="bill_state"></lable>
+		<lable id="bill_postcode"></lable>
+		<lable id="bill_country"></lable>
 	</div>
-	<div style="float:left;width: 30%">
-		<b>Last name: </b><lable id='last_name'></lable>
+
+
+	<div id="propertyInfo" style="margin: 0 auto; width:90%;"> 
+		<b><h1>Property Info </b></h1>
+		
+		<b>Property Address: </b> 
+		<lable id="property_street"></lable>,
+		<lable id="property_city"></lable>,
+		<lable id="property_state"></lable>
+		<lable id="property_postcode"></lable>
+		<lable id="property_country"></lable> 
+		<br>
+		<b>Property code: </b><lable id="property_code"></lable>
+		<br>
+		<b>Property type: </b><lable id='property_type'></lable>
+		<br>	
+		<div style="float:left;width: 30%">
+			<b>Number of Bedroom: </b><lable id='num_bedroom'></lable>
+		</div>
+		<div style="float:left;width: 30%">
+			<b>Number of Bathroom: </b><lable id='num_bathroom'></lable>
+		</div>
+		<br>
+		
+		
+
+		<div style="clear:both; float:left;width: 144px">
+			<b>Parking provided: </b>
+		</div>
+		<div style="float:left;width: 70%">
+			<lable id='parking_provided'></lable>.
+			<lable id='parking_access'></lable>
+		</div>
+
+		<div style="clear:both; float:left;width: 136px">
+			<b>Front door lock: </b>
+		</div>
+		<div style="float:left;width: 70%">
+			<lable id='front_door_lock_type'></lable>.
+			<lable id='front_door_access'></lable>
+		</div>
+
+		<div style="clear:both; float:left;width: 176px">
+			<b>Storage cabinet lock: </b>
+		</div>
+		<div style="float:left;width: 70%">
+			<lable id='utility_lock_type'></lable>.
+			<lable id='utility_access'></lable>
+		</div>
+
+		<div style="clear:both;"></div>
+
+
 	</div>
+
+	<div id="serviceType" style="margin: 0 auto; width:90%;">
+		
+		<h1><b>Service Type</b></h1>
+
+		<b>Service code: </b><lable id="service_code"></lable>
+		<br>
+		<div style="float:left;width: 20%">
+			<b>Cleaning: </b><lable id='cleaning'></lable>
+		</div>
+		<div style="float:left;width: 20%">
+			<b>Washing: </b><lable id='washing'></lable>
+		</div>
+		<div style="float:left;width: 20%">
+			<b>Ironing: </b><lable id='ironing'></lable>
+		</div>
+
+		<div style="clear:both;">
+			<br><br><br>
+		</div>
+
+	</div>
+
+	<div id="jobSheet" style="margin: 0 auto; width:90%;">
+		<h1><b>Service Requirements</b></h1><br>
+	</div>
+
 	<div style="clear:both;"></div>
-	<b>Customer code: </b><lable id="customer_code"></lable>
-	<br>
-	<div style="float:left;width: 30%">
-		<b>Mobile: </b><lable id="mobile"></lable>
-	</div>
-	<div style="float:left;width: 30%">
-		<b>Contact Number 2: </b><lable id = "contact_number_2"></lable>
-	</div>
-	<div style="clear:both;"></div>
-	<b>Email: </b><lable id="email"></lable>
-	<br>
-	<b>Billing Address: </b> 
-	<lable id="bill_street"></lable>,
-	<lable id="bill_city"></lable>,
-	<lable id="bill_state"></lable>
-	<lable id="bill_postcode"></lable>
-	<lable id="bill_country"></lable>
+
+	<div id="dyn" style="margin: 0 auto; width:90%;"></div>
+
+	<div style="clear:both;"><br><br><br></div>
+
+</div> <!-- pdf print section -->
+
+<div style="clear:both;">
+	<button type="button" onclick="genPDF()">Download Jobsheet PDF</button>
 </div>
-
-
-<div id="propertyInfo" style="margin: 0 auto; width:90%;"> 
-	<b><h1>Property Info </b></h1>
-	
-	<b>Property Address: </b> 
-	<lable id="property_street"></lable>,
-	<lable id="property_city"></lable>,
-	<lable id="property_state"></lable>
-	<lable id="property_postcode"></lable>
-	<lable id="property_country"></lable> 
-	<br>
-	<b>Property code: </b><lable id="property_code"></lable>
-	<br>
-	<b>Property type: </b><lable id='property_type'></lable>
-	<br>	
-	<div style="float:left;width: 30%">
-		<b>Number of Bedroom: </b><lable id='num_bedroom'></lable>
-	</div>
-	<div style="float:left;width: 30%">
-		<b>Number of Bathroom: </b><lable id='num_bathroom'></lable>
-	</div>
-	<br>
-	
-	
-
-	<div style="clear:both; float:left;width: 144px">
-		<b>Parking provided: </b>
-	</div>
-	<div style="float:left;width: 70%">
-		<lable id='parking_provided'></lable>.
-		<lable id='parking_access'></lable>
-	</div>
-
-	<div style="clear:both; float:left;width: 136px">
-		<b>Front door lock: </b>
-	</div>
-	<div style="float:left;width: 70%">
-		<lable id='front_door_lock_type'></lable>.
-		<lable id='front_door_access'></lable>
-	</div>
-
-	<div style="clear:both; float:left;width: 176px">
-		<b>Storage cabinet lock: </b>
-	</div>
-	<div style="float:left;width: 70%">
-		<lable id='utility_lock_type'></lable>.
-		<lable id='utility_access'></lable>
-	</div>
-
-	<div style="clear:both;"></div>
-
-
+<div class="mybutton">
+	<button type="button" onclick="back()">Back to HOME Page</button>
 </div>
-
-<div id="serviceType" style="margin: 0 auto; width:90%;">
-	
-	<h1><b>Service Type</b></h1>
-
-	<b>Service code: </b><lable id="service_code"></lable>
-	<br>
-	<div style="float:left;width: 20%">
-		<b>Cleaning: </b><lable id='cleaning'></lable>
-	</div>
-	<div style="float:left;width: 20%">
-		<b>Washing: </b><lable id='washing'></lable>
-	</div>
-	<div style="float:left;width: 20%">
-		<b>Ironing: </b><lable id='ironing'></lable>
-	</div>
-
-	<div style="clear:both;">
-		<br><br><br>
-	</div>
-
-</div>
-
-<div id="jobSheet" style="margin: 0 auto; width:90%;">
-	<h1><b>Service Requirements</b></h1><br>
-
-	<!-- <h2><b>General Check</b></h2>
-
-		<div style="float:left;width: 40%"><br>
-			<b>Electricity power (e.g. Air-con, heater, lights, electric blankets)- turn off </b>
-		</div>
-		<div style="float:left;width: 60%"><br>
-			<lable id='electricity'></lable>
-		</div>
-
-		<div style="clear:both; float:left;width: 40%"><br>
-			<b>Vent (through out the entire cleaning process) </b>
-		</div>
-		<div style="float:left;width: 60%"><br>
-			<lable id='vent'></lable>
-		</div>
-		<div style="clear:both; float:left;width: 40%"><br>
-			<b>Check keys/cards </b>
-		</div>
-		<div style="float:left;width: 60%"><br>
-			<lable id='keys'></lable>
-		</div>
-		<div style="clear:both; float:left;width: 40%"><br>
-			<b><lable id='extra_iterm'></lable></b>
-		</div>
-		<div style="float:left;width: 60%"><br>
-			<lable id='extra_requirements'></lable>
-		</div> -->
-</div>
-
-<div style="clear:both;"></div>
-
-<div id="dyn" style="margin: 0 auto; width:90%;"></div>
 
 <div style="clear:both;"><br><br><br></div>
+
 <script src="jobsheet_pdf.js">
 </script>
 </body>
+
+
 </html>
