@@ -101,6 +101,12 @@ dbRefJS.once('value', function (snapshot) {
 		}			
 	}
 	for (i = 0; i < roomKey.length; i++) {
+		if (roomKey[i].slice(0,3) == "Bel"){
+			createBelcony(roomKey[i]);
+			break;
+		}			
+	}
+	for (i = 0; i < roomKey.length; i++) {
 		if (roomKey[i].slice(0,3) == "Was"){
 			createWashing(roomKey[i]);
 			break;

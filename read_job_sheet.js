@@ -6,13 +6,13 @@ var config = {
     messagingSenderId: "389458058945"
   };
 firebase.initializeApp(config);
-var myTable = document.getElementById('myTable').createCaption();
+//var myTable = document.getElementById('myTable').createCaption();
 var query = window.location.search.substring(1).split("&");
 var propertyCode = query[0];
 var roomType = query[1];
 
 var num_img = 3; // maximum number of image is 3
-myTable.innerHTML = "<b>"+roomType+"</b>";
+document.getElementById('caption').innerHTML  = "<b>"+roomType+"</b>";
 
 var dbRefBedroom = firebase.database().ref("job_sheets/").child(query[0]).child(query[1]);
 dbRefBedroom.on('value', function (snapshot) {

@@ -1,32 +1,45 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
-		<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
-		<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-		<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	</head>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+img { 
+    width:100%; 
+}
+
+.mybutton{
+   width: 30%;
+}
+</style>
+</head>
 	<body>
-		<form>
-			<table id="myTable">
-				<style>
-				td, th {
-					border: 1px solid #dddddd;
-				}
-				tr {
-					border: 1px solid #dddddd;
-				}
-				</style>
-				<tr>
-					<td>Property Code:</td>
-					<td><input type="text" id="propertyCode"></td>
-				</tr>
-			</table>
+		<h1 style="color:#F39233;font-family: Helvetica;font-size: 300%"><img src="logo_t.png" alt="Homtel Icon" style="width:186px;height:85px;"/> <b>Sunny Homtel Service</b></h1>
+		
+
+		<div style="float:left;width: 50%">
+			<h2><b>Property Code: </b></h2><input style="width: 50%" type="text" id="propertyCode" placeholder="Enter property code to search job sheet">
+		</div>
+
+		<div style="clear:both;"><br></div>
+
+		<div class="mybutton">
 			<button type="button" onclick="search()">Search Job Sheet</button>
-			<script src="search_job_sheet.js">
-			</script>
-		</form>
+		</div>
+		
+		<script type="text/javascript">
+			function search() {
+				if(document.getElementById("propertyCode").value == ""){
+					alert("Please enter a property code!");
+				} else {
+					const propertyCode = document.getElementById("propertyCode");
+					location.href = "property_home.html?" + propertyCode.value + "&"+"search";
+				}				
+			}	
+		</script>
 	</body>
 
 

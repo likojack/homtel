@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <script type = "text/javascript" src="jspdf.min.js"></script>
+  <script type = "text/javascript" src="html2canvas.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<style>
+img { 
+    width:100%; 
+}
+lable {
+	font-size: 80%;
+}
+body {
+	font-size: 100%;
+}
+h1 {
+	margin-left: -30px;
+}
+h2 {
+	margin-left: -20px;
+}
+h3 {
+	margin-left: -10px;
+}
+</style>
+</head>
+<body>
+
+<h1 style="margin: 0 auto; width:90%; margin-top: 1em; color:#F39233;font-family: Helvetica;"><img src="logo_t.png" alt="Homtel Icon" style="width:93px;height:42px;"/> <b>Sunny Homtel Service</b></h1><br>
+
+<h1 style="margin: 0 auto;width:90%;"><b>Cleaning Report Preview</b></h1>
+<br>
+<div style="margin: 0 auto;width:90%;">
+	<b>Service Date: </b><lable id='date'></lable><br>
+	<b>Property Address: </b> 
+		<lable id="property_street"></lable>,
+		<lable id="property_city"></lable>,
+		<lable id="property_state"></lable>
+		<lable id="property_postcode"></lable>
+		<lable id="property_country"></lable> 
+</div>
+
+<div style="clear:both;"><br><br><br></div>
+<h1 style="margin: 0 auto;width:90%;"><b>Service Report</b></h1>
+<div style="clear:both;"></div>
+
+<div id="dyn" style="margin: 0 auto; width:90%;"></div>
+
+
+
+
+<div style="clear:both;"><br><br><br></div>
+<div style="clear:both;">
+	<button type="button" onclick="genPDF()">Download Cleaning Report PDF</button>
+</div>
+<div class="mybutton">
+	<button type="button" onclick="back()">Back to HOME Page</button>
+</div>
+
+<div style="clear:both;"><br><br><br></div>
+
+<script src="report_pdf.js">
+</script>
+</body>
+
+
+</html>

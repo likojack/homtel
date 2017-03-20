@@ -7,8 +7,14 @@
 <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
 <script src="jquery-1.11.3.min.js"></script>
 <script src="jquery.mobile-1.4.5.min.js"></script>
+<style>
+img { 
+    width:100%; 
+}
+</style>
 </head>
 <body>
+   <h1 style="color:#F39233;font-family: Helvetica;"><img src="logo_t.png" alt="Homtel Icon"/> <b>Sunny Homtel Service</b></h1>
 <form id="myForm">
   <style>
   td,th {
@@ -18,68 +24,75 @@
     border: 1px solid #dddddd;
   }
   </style>
+<h1 id = "caption" align="center"></h1>
 <table id='myTable' width="100%">
   <tr>
     <th>Content</th>
     <th>Detail</th>
     <th>Requirement</th>
-    <th> Check Box </th>
+    <th>Report</th>
+    <th>Check Box </th>
   </tr>
   <tr>
     <td rowspan="5">Strip</td>
     <td>Protector</td>
-    <td><textarea id="strip_protector"></textarea></td>
+    <td><textarea id="strip_protector" readonly></textarea></td>
     <td><input type="checkbox" id="strip_protector_check"></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td><textarea id="strip_fitted_sheet"></textarea></td>
+    <td><textarea id="strip_fitted_sheet" readonly></textarea></td>
     <td><input type="checkbox" id="strip_fitted_sheet_check"></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td><textarea id="strip_flat_sheet"></textarea></td>
+    <td><textarea id="strip_flat_sheet" readonly></textarea></td>
     <td><input type="checkbox" id="strip_flat_sheet_check"></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td><textarea id="strip_quilt_cover"></textarea></td>
+    <td><textarea id="strip_quilt_cover" readonly></textarea></td>
     <td><input type="checkbox" id="strip_quilt_cover_check"></td>
   </tr>
   <tr>
     <td>Pillowcases</td>
-    <td><textarea id="strip_pillowcases"></textarea></td>
+    <td><textarea id="strip_pillowcases" readonly></textarea></td>
     <td><input type="checkbox" id="strip_pillowcases_check"></td>
   </tr>
   <tr>
-    <td rowspan="5"> Make</td>
+    <td rowspan="6"> Make</td>
+    <td>Protector</td>
+    <td><textarea id="make_protector" readonly></textarea></td>
+    <td><input type="checkbox" id="make_protector_check"></td>
+  </tr>
+  <tr>
     <td>Pillowcases</td>
-    <td><textarea id="make_pillowcases"></textarea></td>
+    <td><textarea id="make_pillowcases" readonly></textarea></td>
     <td><input type="checkbox" id="make_pillowcases_check"></td>
   </tr>
   <tr>
     <td>Fitted sheet</td>
-    <td><textarea id="make_fitted_sheet"></textarea></td>
+    <td><textarea id="make_fitted_sheet" readonly></textarea></td>
     <td><input type="checkbox" id="make_fitted_sheet_check"></td>
   </tr>
   <tr>
     <td>Flat sheet</td>
-    <td><textarea id="make_flat_sheet"></textarea></td>
+    <td><textarea id="make_flat_sheet" readonly></textarea></td>
     <td><input type="checkbox" id="make_flat_sheet_check"></td>
   </tr>
   <tr>
     <td>Quilt cover</td>
-    <td><textarea id="make_quilt_cover"></textarea></td>
+    <td><textarea id="make_quilt_cover" readonly></textarea></td>
     <td><input type="checkbox" id="make_quilt_cover_check"></td>
   </tr>
   <tr>
     <td>Other beddings (cushion, decoration)</td>
-    <td><textarea id="make_other_beddings"></textarea></td>
+    <td><textarea id="make_other_beddings" readonly></textarea></td>
     <td><input type="checkbox" id="make_other_beddings_check"></td>
   </tr>
   <tr>
-    <td colspan="2"><textarea id="extra_iterm"></textarea></td>
-    <td><textarea id="extra_requirements"></textarea></td>
+    <td colspan="2"><textarea id="extra_iterm" readonly></textarea></td>
+    <td><textarea id="extra_requirements" readonly></textarea></td>
     <td><input type="checkbox" id="extra_requirements_check"></td>
   </tr>  
 </table>
@@ -107,6 +120,9 @@ Image:
     <img id="imgPopupThree">
   </div>
 </div>
+
+
+<br><br><br><br>
 <button type="button" formmethod="post" onclick='back()'>Back</button>
 <script src='read_job_sheet.js'>
 </script>
